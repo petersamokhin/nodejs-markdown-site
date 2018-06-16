@@ -1,0 +1,23 @@
+$primary-color: #5c6bc0
+
+#inputs
+  width: 700px
+
+.codemirror_textarea
+  border: 1px $md-input-border-color solid
+  text-align: left
+  font-family: Menlo, 'Roboto', sans-serif
+  height: 600px
+
+.cm-s-default .cm-header
+  color: #5c6bc0
+
+.cm-s-default .cm-comment
+  color: #6b985e
+
+.input-field input:focus + label
+  color: $primary-color !important
+
+.row .input-field input:focus
+  border-bottom: 1px solid $primary-color !important
+  box-shadow: 0 1px 0 0 $primary-color !important

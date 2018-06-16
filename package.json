@@ -1,0 +1,23 @@
+{
+  "name": "markdown-knowledge-base",
+  "version": "0.0.1",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "consolidate": "^0.15.1",
+    "directory-tree": "^2.1.0",
+    "express": "^4.16.3",
+    "markdown-to-html": "git+https://github.com/petersamokhin/markdown-to-html.git",
+    "mkdirp": "^0.5.1",
+    "morgan": "^1.9.0",
+    "mustache": "^2.3.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "@types/express": "^4.16.0"
+  },
+  "scripts": {
+    "sass:kotlin-website-markdown": "node-sass --include-path sass --output-style compressed scss/markdown/styles.scss public/markdown-knowledge-base/markdown/css/styles.css",
+    "sass:materialize": "node-sass --include-path sass --output-style compressed scss/materialize/materialize.scss public/markdown-knowledge-base/materialize/css/materialize.css",
+    "sass:site": "node-sass --include-path sass --output-style compressed scss/site/styles.sass public/markdown-knowledge-base/site/css/styles.css"
+  }
+}

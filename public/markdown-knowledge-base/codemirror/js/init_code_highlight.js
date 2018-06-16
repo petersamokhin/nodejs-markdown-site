@@ -1,0 +1,1 @@
+CodeMirror.colorize($('.code._highlighted'));

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="/markdown-knowledge-base/markdown/css/markdown.css">
+    <link rel="stylesheet" href="/markdown-knowledge-base/markdown/css/kotlin-site-default.css">
+    <link rel="stylesheet" href="/markdown-knowledge-base/markdown/css/kotlin-site-common.css">
+    <link rel="stylesheet" href="/markdown-knowledge-base/materialize/css/materialize.css">
+    <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
+
+    <title>{title}</title>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
+        <ul id="nav-mobile" class="left">
+            <li><a href="/markdown-knowledge-base/create">Добавить</a></li>
+            <li><a href="#">Главная</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="content" class="center">
+    <!-- Navigation -->
+    {navigation}
+
+    <!-- Markdown content -->
+    <article class="page-content g-6 page-article left-align">
+        {markdown}
+    </article>
+</div>
+
+<!-- Scripts -->
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/jquery-3.3.1.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/markdown/js/nav.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/codemirror.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/runmode.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/colorize.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/mode/clike.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/init_code_highlight.js"></script>
+</body>
+</html>
