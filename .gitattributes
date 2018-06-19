@@ -187,7 +187,3 @@ Procfile    text
 *.otf   binary
 *.woff  binary
 *.woff2 binary
-
-## EXECUTABLES
-*.exe binary
-*.pyc binary
