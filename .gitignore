@@ -66,3 +66,6 @@ typings/
 
 # mac
 .DS_Store
+
+# babel output
+dist

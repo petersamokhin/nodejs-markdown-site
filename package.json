@@ -2,22 +2,48 @@
   "name": "markdown-knowledge-base",
   "version": "0.0.1",
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "bcrypt-nodejs": "0.0.3",
     "cheerio": "^1.0.0-rc.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
     "consolidate": "^0.15.1",
+    "cookie-parser": "^1.4.3",
     "directory-tree": "^2.1.0",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "markdown-to-html": "git+https://github.com/petersamokhin/markdown-to-html.git",
     "mkdirp": "^0.5.1",
+    "mongoose": "^5.1.5",
     "morgan": "^1.9.0",
-    "mustache": "^2.3.0"
+    "mustache": "^2.3.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   },
   "private": true,
   "devDependencies": {
-    "@types/express": "^4.16.0"
+    "@types/cheerio": "^0.22.7",
+    "@types/express": "^4.16.0",
+    "@types/mongoose": "^5.0.16",
+    "@types/passport": "^0.4.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
   },
   "scripts": {
-    "sass:kotlin-website-markdown": "node-sass --include-path sass --output-style compressed scss/markdown/styles.scss public/markdown-knowledge-base/markdown/css/styles.css",
-    "sass:materialize": "node-sass --include-path sass --output-style compressed scss/materialize/materialize.scss public/markdown-knowledge-base/materialize/css/materialize.css",
-    "sass:site": "node-sass --include-path sass --output-style compressed scss/site/styles.sass public/markdown-knowledge-base/site/css/styles.css"
+    "sass:kotlin-website-markdown": "node-sass --include-path sass --output-style compressed lib/scss/markdown/styles.scss lib/public/markdown-knowledge-base/markdown/css/styles.css",
+    "sass:materialize": "node-sass --include-path sass --output-style compressed lib/scss/materialize/materialize.scss lib/public/markdown-knowledge-base/materialize/css/materialize.css",
+    "sass:site": "node-sass --include-path sass --output-style compressed lib/scss/site/styles.sass lib/public/markdown-knowledge-base/site/css/styles.css",
+
+    "build": "rm -rf dist && babel lib --ignore lib/public --out-dir dist --source-maps",
+    "copystatic": "cp -rf lib/views dist/views && cp -rf lib/public dist/public",
+    "start": "node dist/app.js",
+    "rebuildstart": "npm run build && npm run copystatic && npm run start"
   }
 }

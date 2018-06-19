@@ -1,6 +1,0 @@
-{
-  "//": "All paths are relative to app root folder.",
-  "markdown_to_html_page_template": "/views/page-template.html",
-
-  "markdown_pages_navigation_links_prefix": "http://localhost:3006/markdown-knowledge-base/"
-}
