@@ -18,7 +18,7 @@
         <a href="#" class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
         <ul id="nav-mobile" class="left">
             <li><a href="/markdown-knowledge-base/create">Добавить</a></li>
-            <li><a href="#">Главная</a></li>
+            <li><a href="/markdown-knowledge-base">Главная</a></li>
         </ul>
     </div>
 </nav>
@@ -35,11 +35,30 @@
 
 <!-- Scripts -->
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/jquery-3.3.1.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/materialize.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/markdown/js/nav.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/codemirror.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/runmode.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/colorize.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/mode/clike.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/mode/shell.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/init_code_highlight.js"></script>
+
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/clipboard.min.js"></script>
+<script>
+  var clipboard = new ClipboardJS('a.ctrlc');
+  // $('.ctrlc').tooltip({
+  //   html: 'Скопировать код',
+  //   position: 'right'
+  // });
+  //
+  // clipboard.on('success', function(e) {
+  //   console.info('Action:', e.action);
+  //   console.info('Text:', e.text);
+  //   console.info('Trigger:', e.trigger);
+  //
+  //   e.clearSelection();
+  // });
+</script>
 </body>
 </html>

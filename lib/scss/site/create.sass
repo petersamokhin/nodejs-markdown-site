@@ -18,6 +18,59 @@ $primary-color: #5c6bc0
 .input-field input:focus + label
   color: $primary-color !important
 
-.row .input-field input:focus
-  border-bottom: 1px solid $primary-color !important
-  box-shadow: 0 1px 0 0 $primary-color !important
+//.row .input-field input:focus
+//  border-bottom: none // 1px solid $primary-color !important
+//  box-shadow: none // 0 1px 0 0 $primary-color !important
+
+#path-select-wrapper
+  margin-top: 50px
+
+ul.dropdown-content.select-dropdown li span
+  color: #497bb7
+
+#chips-placeholder
+  margin-top: 35px
+
+#chips-placeholder-label
+  font-size: .8rem
+
+#select-roles-wrapper
+  margin-top: 50px
+
+#chips-placeholder-label
+  margin-top: -35px
+
+#chips-wrapper
+  margin-top: 20px
+
+.tag
+  &:focus
+    outline: none
+    background-color: $primary-color
+    color: white
+
+  display: inline-block
+  height: 32px
+  font-size: 13px
+  font-weight: 500
+  color: rgba(0, 0, 0, .6)
+  line-height: 32px
+  padding: 0 12px
+  border-radius: 16px
+  background-color: #e9e9e9
+  margin-bottom: 5px
+  margin-right: 5px
+
+  > img
+    float: left
+    margin: 0 8px 0 -12px
+    height: 32px
+    width: 32px
+    border-radius: 50%
+
+  .close
+    cursor: pointer
+    float: right
+    font-size: 16px
+    line-height: 32px
+    padding-left: 8px

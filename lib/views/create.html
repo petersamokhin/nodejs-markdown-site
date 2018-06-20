@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>{title}</title>
+    <title>Create article | Markdown Website</title>
 </head>
 <body>
 <nav>
@@ -17,7 +17,7 @@
         <a href="#" class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
         <ul id="nav-mobile" class="left">
             <li class="active"><a>Добавить</a></li>
-            <li><a href="#">Главная</a></li>
+            <li><a href="/markdown-knowledge-base">Главная</a></li>
         </ul>
     </div>
 </nav>
@@ -26,32 +26,71 @@
     <div class="row center" id="inputs">
         <form action="" method="post" id="markdown-form">
             <div class="input-field col s11">
-                <input type="text" data-length="10" id="markdown-path" name="path" />
-                <label for="markdown-path">Путь до статьи</label>
-            </div>
-            <div class="input-field col s11">
-                <input type="text" data-length="10" id="markdown-title" name="title" required />
+                <input type="text" data-length="10" id="markdown-title" name="title" required/>
                 <label for="markdown-title">Заголовок статьи</label>
             </div>
             <label class="col s11" id="markdown-input-label">
                 <textarea id="markdown-input" name="markdown"># Текст статьи</textarea>
             </label>
-            <button type="submit" class="btn-floating btn-large waves-effect waves-light indigo right col"><i class="material-icons">done</i></button>
+            <button type="submit" class="btn-floating btn-large waves-effect waves-light indigo right col"
+                    id="submit-btn">
+                <i class="material-icons">done</i>
+            </button>
+            <div class="input-field col s11" id="path-select-wrapper">
+                <select id="path-select" name="path">
+                    {{#available_folders}}
+                    <option value="{{.}}">{{.}}</option>
+                    {{/available_folders}}
+                </select>
+                <label for="path-select">Существующая папка или категория статьи (для навигации и иерархии)</label>
+            </div>
+            <div class="input-field col s11">
+                <input type="text" data-length="10" id="new-folder-input" name="new_path" required/>
+                <label for="new-folder-input">Новая папка или категория</label>
+            </div>
+            <div class="input-field col s11" id="select-roles-wrapper">
+                <select multiple name="roles" id="select-roles">
+                    {{#available_roles}}
+                    <option value="{{.}}">{{.}}</option>
+                    {{/available_roles}}
+                </select>
+                <label for="select-roles">Выбрать уже существующие права доступа</label>
+            </div>
+            <div class="input-field col s11 left-align" id="chips-wrapper">
+                <input name="new_roles" type="tags" placeholder="Права доступа через запятую"/>
+                <label id="chips-placeholder-label">Добавить новые права доступа</label>
+            </div>
         </form>
     </div>
 </div>
 
 <!-- Scripts -->
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/jquery-3.3.1.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/sticky-button.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/tags-input.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-tags-input.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/markdown/js/nav.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/materialize/js/materialize.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/init-select-multiple.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/init-chips.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/codemirror.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/mode/markdown.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/init_editable_code_highlight.js"></script>
+
 <script>
-    $("body").on('DOMSubtreeModified', "span", function () {
-        alert("Span HTML is now " + $(this).html());
-    });
+  $(document).ready(function () {
+    let submit = $('#submit-btn')
+
+    submit.pushpin({
+      offset: 200
+    })
+
+    submit.tooltip({
+      html: 'Добавить статью',
+      position: 'right'
+    })
+
+  })
 </script>
 </body>
 </html>
