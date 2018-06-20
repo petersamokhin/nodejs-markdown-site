@@ -1,5 +1,8 @@
-# Markdown Site Engine [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
-Pages engine for a simple site or blog with content written with Markdown.
+# Markdown Site Engine
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/petersamokhin/nodejs-markdown-site/issues) [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)]() [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/petersamokhin/) [![GitHub license](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNzgiIGhlaWdodD0iMjAiPjxsaW5lYXJHcmFkaWVudCBpZD0iYiIgeDI9IjAiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNiYmIiIHN0b3Atb3BhY2l0eT0iLjEiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iLjEiLz48L2xpbmVhckdyYWRpZW50PjxjbGlwUGF0aCBpZD0iYSI+PHJlY3Qgd2lkdGg9Ijc4IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iI2ZmZiIvPjwvY2xpcFBhdGg+PGcgY2xpcC1wYXRoPSJ1cmwoI2EpIj48cGF0aCBmaWxsPSIjNTU1IiBkPSJNMCAwaDQ3djIwSDB6Ii8+PHBhdGggZmlsbD0iIzk3Q0EwMCIgZD0iTTQ3IDBoMzF2MjBINDd6Ii8+PHBhdGggZmlsbD0idXJsKCNiKSIgZD0iTTAgMGg3OHYyMEgweiIvPjwvZz48ZyBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iRGVqYVZ1IFNhbnMsVmVyZGFuYSxHZW5ldmEsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMTAiPjx0ZXh0IHg9IjI0NSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iMzcwIj5saWNlbnNlPC90ZXh0Pjx0ZXh0IHg9IjI0NSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iMzcwIj5saWNlbnNlPC90ZXh0Pjx0ZXh0IHg9IjYxNSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iMjEwIj5NSVQ8L3RleHQ+PHRleHQgeD0iNjE1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSIyMTAiPk1JVDwvdGV4dD48L2c+IDwvc3ZnPg==)](https://github.com/petersamokhin/nodejs-markdown-site/blob/master/LICENSE)
+
+Make your project documentation (or blog, or something else) with Markdown.
 
 ## Features
 - HTML-generating on-the-fly from the Markdown files.
@@ -10,14 +13,26 @@ Pages engine for a simple site or blog with content written with Markdown.
   * User can see the page (including navigation) if he has at least one role from page's list.
 - Nice looking & adaptive design.
 - Fully configurable.
+- Other small but useful features:
+  - Each header has `#link` to it
+  - Most code snippets will have copy button on header above
+  - All `kramdown` features
 
 ## TODO
-- [ ] Better error handling.
+- [x] Better error handling.
+- [x] Global refactoring of code.
 - [ ] Store configuration in database.
-- [ ] Admin's page for change configurations (after first paragraph).
+- [ ] Admin's page for change configurations (after previous paragraph).
 - [ ] Better visual editor (maybe like GitHub's).
 - [ ] Preview of result html on `/create` page.
-- [ ] Global refactoring of code.
+- [ ] Search.
+
+## Sample
+This readme page after rendering:<br>
+![](https://i.imgur.com/tFUfOZ5.png =500x)
+
+And mobile version (iPhone 8 Plus):<br>
+![](https://i.imgur.com/Qhf4mdu.jpg =300x)
 
 ## Requirements
 - [NodeJS](https://github.com/nodejs/node) (+[ npm](https://github.com/npm/npm))
