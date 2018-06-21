@@ -1,22 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
     <meta charset="UTF-8">
-    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="/markdown-knowledge-base/codemirror/css/codemirror.css">
+    <link rel="stylesheet" href="/markdown-knowledge-base/materialize/css/materialize.css">
+    <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Управление доступами | Markdown Website</title>
 </head>
 <body>
-<form action="/markdown-knowledge-base/manage-access" method="post">
-    <p>{{messages}}</p>
-    <div class="form-group">
-        <label for="path">Path</label>
-        <input id="path" type="text" name="path">
+<nav>
+    <div class="nav-wrapper hide-on-med-and-up">
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+        <a class="right brand-logo" id="logo-mobile">Markdown Knowledge Base</a>
+        <ul id="nav-mobile" class="sidenav left">
+            <li><a href="/markdown-knowledge-base">Главная</a></li>
+            <li><a href="/markdown-knowledge-base/create">Добавить</a></li>
+            <li class="active"><a>Управление доступами</a></li>
+            <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
+        </ul>
     </div>
-    <div class="form-group">
-        <label for="roles">Roles</label>
-        <input id="roles" type="text" name="roles">
+    <div class="nav-wrapper hide-on-small-only">
+        <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
+        <ul id="nav-pc" class="left">
+            <li><a href="/markdown-knowledge-base">Главная</a></li>
+            <li><a href="/markdown-knowledge-base/create">Добавить</a></li>
+            <li class="active"><a>Управление доступами</a></li>
+            <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
+        </ul>
     </div>
+</nav>
 
-    <button type="submit">Change roles</button>
-</form>
+<div id="content">
+    <div class="row" id="inputs">
+        <form action="" method="post" id="markdown-form">
+            <!-- Path -->
+            <div class="section" id="path-select-section">
+                <div class="col s11 section-header">
+                    <h4>Права для папок и категорий</h4>
+                </div>
+                <div class="input-field col s11">
+                    <select id="path-select" name="selected_path">
+                        {{#available_folders}}
+                        <option value="{{path}}">{{path}}</option>
+                        {{/available_folders}}
+                    </select>
+                    <label for="path-select">Папка или категория</label>
+                </div>
+                <div class="col s11 left-align">
+                    <div id="current-path-roles"><b>Текущие права папки:</b></div>
+                </div>
+                <div class="input-field col s11" id="path-roles-wrapper">
+                    <select multiple name="path_roles" id="path-roles">
+                        {{#available_roles}}
+                        <option value="{{.}}">{{.}}</option>
+                        {{/available_roles}}
+                    </select>
+                    <label for="path-roles">Выбрать новые права доступа из уже существующих</label>
+                </div>
+                <div class="input-field col s11 left-align" id="chips-wrapper">
+                    <input name="new_path_roles" type="tags" placeholder="Права доступа через запятую"/>
+                    <label class="chips-placeholder-label">Добавить новые права доступа</label>
+                </div>
+                <button type="submit" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn"
+                        name="change_roles_path" id="change_roles_path">
+                    Применить
+                </button>
+            </div>
+            <!-- User -->
+            <div class="section" id="user-select-section">
+                <div class="col s11 section-header">
+                    <h4>Права для пользователей</h4>
+                </div>
+                <div class="input-field col s11">
+                    <select id="user-select" name="selected_user">
+                        {{#available_users}}
+                        <option value="{{login}}">{{login}}</option>
+                        {{/available_users}}
+                    </select>
+                    <label for="user-select">Пользователь</label>
+                </div>
+                <div class="col s11 left-align">
+                    <div id="current-user-roles"><b>Текущие права пользователя:</b></div>
+                </div>
+                <div class="input-field col s11" id="user-roles-wrapper">
+                    <select multiple name="user_roles" id="user-roles">
+                        {{#available_roles}}
+                        <option value="{{.}}">{{.}}</option>
+                        {{/available_roles}}
+                    </select>
+                    <label for="user-roles">Выбрать новые права доступа из уже существующих</label>
+                </div>
+                <div class="input-field col s11 left-align chips-wrapper">
+                    <input name="new_user_roles" type="tags" placeholder="Права доступа через запятую"/>
+                    <label class="chips-placeholder-label">Добавить новые права доступа</label>
+                </div>
+                <button type="submit" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn" name="change_roles_user" id="change_roles_user">
+                    Применить
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/jquery-3.3.1.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/markdown/js/nav.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/materialize.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/init-select-multiple.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/tags-input.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-tags-input.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-manage-access.js"></script>
+<script>$('.sidenav').sidenav()</script>
 </body>
 </html>

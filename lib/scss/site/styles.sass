@@ -42,6 +42,10 @@ article > pre > code
   white-space: pre
   overflow-x: auto
 
+div > pre > code
+  white-space: pre
+  overflow-x: auto
+
 .ctrlc
   width: 16px !important
   height: 16px !important
@@ -64,5 +68,98 @@ h1:hover .ctrlc
 .ctrlc:hover
   cursor: pointer
   opacity: 1
+
+#login_user
+  margin-left: 10px
+
+#register_user
+  margin-left: 40px
+
+#err_content
+  width: 600px
+
+#path-select-section
+  margin-top: 50px
+
+#user-select-section
+  margin-top: 500px
+
+#current-path-roles
+  margin-bottom: 30px
+  color: #aaaaaa
+
+#current-user-roles
+  margin-bottom: 30px
+  color: #aaaaaa
+
+.change-roles-submit-btn
+  margin-left: 10px !important
+
+.section-header
+  margin-bottom: 30px
+
+#nav-mobile
+  background: rgb(239, 239, 239)
+
+#nav-mobile > li > a
+  color: #333
+
+#submit-btn-create
+  z-index: 1000
+
+@media only screen and (max-width: 800px)
+  #logo-a
+    display: none
+
+  #logo-mobile
+    font-size: 20px
+
+  #generated-nav
+    width: 100%
+    padding: 0
+    margin: 0 0 50px 0
+
+  #content
+    margin-top: 10px
+
+  //.side-tree-nav-fix
+  //  padding: 0 10px 0 10px
+
+@media only screen and (max-width: 1000px)
+  .page-content
+    width: 95%
+    margin: 0 0 0 2.5%
+
+  #path-select-label
+    margin-bottom: 10px
+
+  #inputs
+    width: 90% !important
+    margin: 0 0 0 5%
+
+  #submit-btn-create
+    position: fixed
+    right: 20px
+    bottom: 40px !important
+
+  #path-select-label
+    margin-top: -15px
+
+  #change_roles_user
+    margin-bottom: 20px
+
+  .tree-item-title .text
+    margin-left: 5px
+
+  .tree-branch-title .marker
+    margin-left: -5px
+
+  .tree-branch-title.is_active .marker
+    margin-left: -9px
+
+@media only screen and (min-width: 1000px)
+  #submit-btn-create
+    position: fixed
+    top: 200px
 
 @import "create"

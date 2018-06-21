@@ -2,8 +2,6 @@
   "name": "markdown-knowledge-base",
   "version": "0.0.1",
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
     "bcrypt-nodejs": "0.0.3",
     "cheerio": "^1.0.0-rc.2",
     "connect-flash": "^0.1.1",
@@ -18,8 +16,7 @@
     "morgan": "^1.9.0",
     "mustache": "^2.3.0",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "utf8": "^3.0.0"
+    "passport-local": "^1.0.0"
   },
   "private": true,
   "devDependencies": {

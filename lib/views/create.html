@@ -9,15 +9,27 @@
     <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Create article | Markdown Website</title>
+    <title>Добавить статью | Markdown Website</title>
 </head>
 <body>
 <nav>
-    <div class="nav-wrapper">
-        <a href="#" class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
-        <ul id="nav-mobile" class="left">
-            <li class="active"><a>Добавить</a></li>
+    <div class="nav-wrapper hide-on-med-and-up">
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+        <a class="right brand-logo" id="logo-mobile">Markdown Knowledge Base</a>
+        <ul id="nav-mobile" class="sidenav left">
             <li><a href="/markdown-knowledge-base">Главная</a></li>
+            <li class="active"><a>Добавить</a></li>
+            <li><a href="/markdown-knowledge-base/manage-access">Управление доступами</a></li>
+            <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
+        </ul>
+    </div>
+    <div class="nav-wrapper hide-on-small-only">
+        <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
+        <ul id="nav-pc" class="left">
+            <li><a href="/markdown-knowledge-base">Главная</a></li>
+            <li class="active"><a>Добавить</a></li>
+            <li><a href="/markdown-knowledge-base/manage-access">Управление доступами</a></li>
+            <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
         </ul>
     </div>
 </nav>
@@ -25,30 +37,31 @@
 <div id="content">
     <div class="row center" id="inputs">
         <form action="" method="post" id="markdown-form">
-            <div class="input-field col s11">
+            <div class="input-field col s12 m11">
                 <input type="text" data-length="10" id="markdown-title" name="title" required/>
                 <label for="markdown-title">Заголовок статьи</label>
             </div>
-            <label class="col s11" id="markdown-input-label">
+            <label class="col s12 m11" id="markdown-input-label">
                 <textarea id="markdown-input" name="markdown"># Текст статьи</textarea>
             </label>
             <button type="submit" class="btn-floating btn-large waves-effect waves-light indigo right col"
-                    id="submit-btn">
+                    id="submit-btn-create">
                 <i class="material-icons">done</i>
             </button>
-            <div class="input-field col s11" id="path-select-wrapper">
+            <div class="input-field col s12 m11" id="path-select-wrapper">
                 <select id="path-select" name="path">
                     {{#available_folders}}
                     <option value="{{.}}">{{.}}</option>
                     {{/available_folders}}
                 </select>
-                <label for="path-select">Существующая папка или категория статьи (для навигации и иерархии)</label>
+                <label for="path-select" id="path-select-label">Существующая папка или категория статьи (для навигации и
+                    иерархии)</label>
             </div>
-            <div class="input-field col s11">
+            <div class="input-field col s12 m11">
                 <input type="text" data-length="10" id="new-folder-input" name="new_path" required/>
                 <label for="new-folder-input">Новая папка или категория</label>
             </div>
-            <div class="input-field col s11" id="select-roles-wrapper">
+            <div class="input-field col s12 m11" id="select-roles-wrapper">
                 <select multiple name="roles" id="select-roles">
                     {{#available_roles}}
                     <option value="{{.}}">{{.}}</option>
@@ -56,9 +69,9 @@
                 </select>
                 <label for="select-roles">Выбрать уже существующие права доступа</label>
             </div>
-            <div class="input-field col s11 left-align" id="chips-wrapper">
+            <div class="input-field col s12 m11 left-align" id="chips-wrapper">
                 <input name="new_roles" type="tags" placeholder="Права доступа через запятую"/>
-                <label id="chips-placeholder-label">Добавить новые права доступа</label>
+                <label class="chips-placeholder-label">Добавить новые права доступа</label>
             </div>
         </form>
     </div>
@@ -66,31 +79,31 @@
 
 <!-- Scripts -->
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/jquery-3.3.1.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/site/js/sticky-button.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/tags-input.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/init-tags-input.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/markdown/js/nav.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/materialize/js/materialize.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/materialize/js/init-select-multiple.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/init-chips.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/codemirror.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/mode/markdown.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/init_editable_code_highlight.js"></script>
+<script type="application/javascript"
+        src="/markdown-knowledge-base/codemirror/js/init_editable_code_highlight.js"></script>
 
 <script>
-  $(document).ready(function () {
-    let submit = $('#submit-btn')
-
-    submit.pushpin({
-      offset: 200
+  $(document).ready(() => {
+    $('.btn-floating').floatingActionButton()
+    let prevScrollpos = window.pageYOffset
+    $(window).scroll(function () {
+      let currentScrollPos = window.pageYOffset
+      if (prevScrollpos > currentScrollPos) {
+        $('.btn-floating').openFAB()
+      } else {
+        $('#submit-btn-create').closeFAB()
+      }
+      prevScrollpos = currentScrollPos
     })
-
-    submit.tooltip({
-      html: 'Добавить статью',
-      position: 'right'
-    })
-
   })
 </script>
+<script>$('.sidenav').sidenav()</script>
 </body>
 </html>

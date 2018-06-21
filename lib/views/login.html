@@ -2,20 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/markdown-knowledge-base/materialize/css/materialize.css">
+    <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
 </head>
 <body>
-<form action="/markdown-knowledge-base/login" method="post">
-    <div class="form-group">
-        <label for="login">Login</label>
-        <input id="login" type="text" name="login">
+<nav>
+    <div class="nav-wrapper hide-on-med-and-up">
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
+        <a class="right brand-logo" id="logo-mobile">Markdown Knowledge Base</a>
+        <ul id="nav-mobile" class="sidenav left">
+            <li><a href="/markdown-knowledge-base">Главная</a></li>
+            <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
+        </ul>
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input id="password" type="password" name="password">
+    <div class="nav-wrapper hide-on-small-only">
+        <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
+        <ul id="nav-pc" class="left">
+            <li><a href="/markdown-knowledge-base">Главная</a></li>
+            <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
+        </ul>
     </div>
+</nav>
 
-    <button type="submit">Login</button>
-</form>
+<div id="content" class="center">
+    <div class="row center" id="inputs">
+        <form action="/markdown-knowledge-base/login" method="post">
+            <div class="input-field col s11">
+                <input type="text" id="login" name="login" required/>
+                <label for="login">Логин</label>
+            </div>
+            <div class="input-field col s11">
+                <input type="password" id="password" name="password" required/>
+                <label for="password">Пароль</label>
+            </div>
+            <button type="submit" class="btn waves-effect waves-light indigo col s5" name="login_user" id="login_user">
+                Войти
+            </button>
+            <button type="submit" class="btn waves-effect waves-light indigo col s5" name="register_user" id="register_user">
+                Регистрация
+            </button>
+        </form>
+    </div>
+</div>
+<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/materialize.min.js"></script>
+<script>$('.sidenav').sidenav()</script>
 </body>
 </html>
