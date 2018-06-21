@@ -11,6 +11,12 @@ Pages engine for a simple site or blog with content written with Markdown.
 - Nice looking & adaptive design.
 - Fully configurable.
 
+## TODO
+- [ ] Store configuration in database.
+- [ ] Admin's page for change configurations (after first paragraph).
+- [ ] Better visual editor (maybe like GitHub's).
+- [ ] Preview of result html on `/create` page.
+
 ## Requirements
 - NodeJS (+ npm)
 - MongoDB (used for `passport` sessions, user and paths info)
