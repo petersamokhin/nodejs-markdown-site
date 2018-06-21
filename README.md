@@ -1,5 +1,8 @@
-# Markdown Site Engine [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
-Pages engine for a simple site or blog with content written with Markdown.
+# Markdown Site Engine
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/petersamokhin/nodejs-markdown-site/issues) [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)]() [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/petersamokhin/) [![GitHub license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/petersamokhin/nodejs-markdown-site/blob/master/LICENSE)
+
+Make your project documentation (or blog, or something else) with Markdown.
 
 ## Features
 - HTML-generating on-the-fly from the Markdown files.
@@ -10,14 +13,26 @@ Pages engine for a simple site or blog with content written with Markdown.
   * User can see the page (including navigation) if he has at least one role from page's list.
 - Nice looking & adaptive design.
 - Fully configurable.
+- Other small but useful features:
+  - Each header has `#link` to it
+  - Most code snippets will have copy button on header above
+  - All `kramdown` features
 
 ## TODO
-- [ ] Better error handling.
+- [x] Better error handling.
+- [x] Global refactoring of code.
 - [ ] Store configuration in database.
-- [ ] Admin's page for change configurations (after first paragraph).
+- [ ] Admin's page for change configurations (after previous paragraph).
 - [ ] Better visual editor (maybe like GitHub's).
 - [ ] Preview of result html on `/create` page.
-- [ ] Global refactoring of code.
+- [ ] Search.
+
+## Sample
+This readme page after rendering:<br>
+![](https://i.imgur.com/tFUfOZ5.png)
+
+And mobile version (iPhone 8 Plus):<br>
+![](https://i.imgur.com/Qhf4mdu.jpg)
 
 ## Requirements
 - [NodeJS](https://github.com/nodejs/node) (+[ npm](https://github.com/npm/npm))

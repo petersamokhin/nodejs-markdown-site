@@ -46,6 +46,20 @@ div > pre > code
   white-space: pre
   overflow-x: auto
 
+pre > code
+  white-space: pre
+  overflow-x: auto
+
+code
+  white-space: pre
+  overflow-x: auto
+
+p > code
+  white-space: pre-wrap
+
+a > img
+  display: inline-block !important
+
 .ctrlc
   width: 16px !important
   height: 16px !important
@@ -114,11 +128,6 @@ h1:hover .ctrlc
   #logo-mobile
     font-size: 20px
 
-  #generated-nav
-    width: 100%
-    padding: 0
-    margin: 0 0 50px 0
-
   #content
     margin-top: 10px
 
@@ -129,6 +138,11 @@ h1:hover .ctrlc
   .page-content
     width: 95%
     margin: 0 0 0 2.5%
+
+  #generated-nav
+    width: 100%
+    padding: 0
+    margin: 0 0 50px 0
 
   #path-select-label
     margin-bottom: 10px
