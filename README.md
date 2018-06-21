@@ -41,21 +41,30 @@ npm start
 ```
 
 ## 3rd party
+- [babel](https://github.com/babel/babel)
 - [bcrypt-nodejs](https://npmjs.org/bcrypt-nodejs/)
 - [cheerio](https://github.com/cheeriojs/cheerio)
+- [CodeMirror](https://github.com/codemirror/CodeMirror)
 - [connect-mongo](https://github.com/jdesboeufs/connect-mongo)
 - [consolidate](https://github.com/tj/consolidate.js/)
 - [cookie-parser](https://github.com/expressjs/cookie-parser)
 - [directory-tree](https://github.com/mihneadb/node-directory-tree)
+- [eslint](https://github.com/eslint/eslint)
 - [express](https://github.com/expressjs/express)
 - [express-session](https://github.com/expressjs/session)
+- [jQuery](https://github.com/jquery/jquery)
+- [Kotlin Website styles](https://github.com/JetBrains/kotlin-web-site)
+- [kramdown](https://github.com/gettalong/kramdown)
+- [materialize](https://github.com/Dogfalo/materialize)
 - [mkdirp](https://github.com/substack/node-mkdirp)
 - [mongoose](https://github.com/Automattic/mongoose)
 - [morgan](https://github.com/expressjs/morgan)
 - [mustache](https://github.com/mustache/mustache)
 - [passport](https://github.com/jaredhanson/passport)
 - [passport-local](https://github.com/jaredhanson/passport-local)
+- [tags-input](https://github.com/developit/tags-input)
 
 # License
 MIT<br>
-[Copyright (c) 2018 PeterSamokhin https://petersamokhin.com/](https://github.com/petersamokhin/markdown-site/blob/master/LICENSE)
+[Copyright (c) 2018 PeterSamokhin](https://github.com/petersamokhin/markdown-site/blob/master/LICENSE)<br>
+https://petersamokhin.com/
