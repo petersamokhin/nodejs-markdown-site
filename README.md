@@ -12,14 +12,16 @@ Pages engine for a simple site or blog with content written with Markdown.
 - Fully configurable.
 
 ## TODO
+- [ ] Better error handling.
 - [ ] Store configuration in database.
 - [ ] Admin's page for change configurations (after first paragraph).
 - [ ] Better visual editor (maybe like GitHub's).
 - [ ] Preview of result html on `/create` page.
+- [ ] Global refactoring of code.
 
 ## Requirements
-- NodeJS (+ npm)
-- MongoDB (used for `passport` sessions, user and paths info)
+- [NodeJS](https://github.com/nodejs/node) (+[ npm](https://github.com/npm/npm))
+- [MongoDB](https://github.com/mongodb/mongo) (used for `passport` sessions, user and paths info)
 - Ruby (for `kramdown` library)
 - `babel`
 - `node-sass` (not so necessary if you don't want to change the existing styles, and you still can use plain css)
@@ -30,8 +32,9 @@ Pages engine for a simple site or blog with content written with Markdown.
 git clone https://github.com/petersamokhin/markdown-site
 ```
 
-2. Install dependencies
+2. Install dependencies 
 ```bash
+cd markdown-site
 npm i
 ```
 
