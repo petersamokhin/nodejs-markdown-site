@@ -40,6 +40,7 @@
     "build": "rm -rf dist && babel lib --ignore lib/public --out-dir dist --source-maps",
     "copystatic": "cp -rf lib/views dist/views && cp -rf lib/public dist/public",
     "start": "node dist/app.js",
+    "rebuild": "npm run build && npm run copystatic",
     "rebuildstart": "npm run build && npm run copystatic && npm run start"
   }
 }
