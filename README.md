@@ -19,10 +19,13 @@ Make your project documentation (or blog, or something else) with Markdown.
   - Each header has `#link` to it
   - Most code snippets will have copy button on header above
   - All `kramdown` features
+  - `Main pages folder` from configuration will be always on top in navigation on each page.
+  - Pages will have default access rights from config and will be placed in `Main pages folder` if you wont specify path or roles.
 
 ## TODO
 - [x] Better error handling.
 - [x] Global refactoring of code.
+- [ ] Add indexing for pages folder (and update indices on each loading of any page — if some files or folders were added but have no access rights, add default rights to them).
 - [ ] Store configuration in database.
 - [ ] Admin's page for change configurations (after previous paragraph).
 - [ ] Better visual editor (maybe like GitHub's).
