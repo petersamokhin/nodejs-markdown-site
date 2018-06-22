@@ -14,6 +14,7 @@ Make your project documentation (or blog, or something else) with Markdown.
 - Nice looking & adaptive design.
 - Preview of result html page in creating page.
 - Fully configurable.
+- You can simply copy your markdown files to `views/pages/` and manage access to paths — and then your documentation is ready :)
 - Other small but useful features:
   - Each header has `#link` to it
   - Most code snippets will have copy button on header above
