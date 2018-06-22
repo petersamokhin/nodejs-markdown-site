@@ -21,6 +21,7 @@ Make your project documentation (or blog, or something else) with Markdown.
   - All `kramdown` features
   - `Main pages folder` from configuration will be always on top in navigation on each page.
   - Pages will have default access rights from config and will be placed in `Main pages folder` if you wont specify path or roles.
+  - Advanced error handling (page with information about error will be shown for each error, so no crashes must occur)
 
 ## TODO
 - [ ] Add indexing for pages folder (and update indices on each loading of any page — if some files or folders were added but have no access rights, add default rights to them).
