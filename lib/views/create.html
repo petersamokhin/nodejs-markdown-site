@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="/markdown-knowledge-base/codemirror/css/codemirror.css">
+    <link rel="stylesheet" href="/markdown-knowledge-base/markdown/css/markdown.css">
+    <link rel="stylesheet" href="/markdown-knowledge-base/markdown/css/kotlin-site-default.css">
+    <link rel="stylesheet" href="/markdown-knowledge-base/markdown/css/kotlin-site-common.css">
     <link rel="stylesheet" href="/markdown-knowledge-base/materialize/css/materialize.css">
     <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -48,6 +51,11 @@
                     id="submit-btn-create">
                 <i class="material-icons">done</i>
             </button>
+            <button type="button"
+                    class="btn-floating btn-large waves-effect waves-light indigo right col modal-trigger"
+                    id="btn-preview" onclick="showPreview()">
+                <i class="material-icons">remove_red_eye</i>
+            </button>
             <div class="input-field col s12 m11" id="path-select-wrapper">
                 <select id="path-select" name="path">
                     {{#available_folders}}
@@ -77,6 +85,16 @@
     </div>
 </div>
 
+<div id="preview-modal" class="modal modal-fixed-footer">
+    <div class="modal-content center">
+        <article class="page-content g-10 page-article left-align" id="preview-modal-content" style="width: 80%">
+        </article>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-green btn-flat">Close preview</a>
+    </div>
+</div>
+
 <!-- Scripts -->
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/jquery-3.3.1.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/tags-input.js"></script>
@@ -86,23 +104,22 @@
 <script type="application/javascript" src="/markdown-knowledge-base/materialize/js/init-select-multiple.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/codemirror.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/mode/markdown.min.js"></script>
-<script type="application/javascript"
-        src="/markdown-knowledge-base/codemirror/js/init_editable_code_highlight.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/init_editable_code_highlight.js"></script>
 
 <script>
   $(document).ready(() => {
-    $('.btn-floating').floatingActionButton()
-    let prevScrollpos = window.pageYOffset
-    $(window).scroll(function () {
-      let currentScrollPos = window.pageYOffset
-      if (prevScrollpos > currentScrollPos) {
-        $('.btn-floating').openFAB()
-      } else {
-        $('#submit-btn-create').closeFAB()
-      }
-      prevScrollpos = currentScrollPos
-    })
+    $('.modal').modal()
   })
+    function showPreview () {
+      $.post('/markdown-knowledge-base/preview', {
+        markdown: editor.getValue()
+      }).done((data) => {
+        $('#preview-modal').modal('open')
+        $('#preview-modal-content').html(data.html)
+
+        console.log(JSON.stringify(data, null, 4))
+      })
+    }
 </script>
 <script>$('.sidenav').sidenav()</script>
 </body>

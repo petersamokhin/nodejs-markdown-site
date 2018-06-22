@@ -1,0 +1,1 @@
+require 'kramdown';puts(Kramdown::Document.new(ARGV[0], {input: "GFM", enable_coderay: false, hard_wrap: false, smart_quotes: %w(apos apos quot quot)}).to_html)
