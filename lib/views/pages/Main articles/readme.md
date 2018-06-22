@@ -92,4 +92,3 @@ npm start
 MIT<br>
 [Copyright (c) 2018 PeterSamokhin](https://github.com/petersamokhin/markdown-site/blob/master/LICENSE)<br>
 https://petersamokhin.com/
-********

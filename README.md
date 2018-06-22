@@ -11,6 +11,7 @@ Make your project documentation (or blog, or something else) with Markdown.
   * Each user has a list of roles.
   * Each page and directory should have a list of roles.
   * User can see the page (including navigation) if he has at least one role from page's list.
+- Search text in all pages that you can see.
 - Nice looking & adaptive design.
 - Preview of result html page in creating page.
 - Fully configurable.
@@ -28,7 +29,6 @@ Make your project documentation (or blog, or something else) with Markdown.
 - [ ] Store configuration in database.
 - [ ] Admin's page for change configurations (after previous paragraph).
 - [ ] Better visual editor (maybe like GitHub's).
-- [ ] Search.
 
 ## Sample
 This readme page after rendering:<br>

@@ -33,6 +33,16 @@
             <li><a href="/markdown-knowledge-base/manage-access">Управление доступами</a></li>
             <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
         </ul>
+        <form autocomplete="off">
+            <div class="input-field autocomplete" id="search-form">
+                <input id="text" type="search" required>
+                <label class="label-icon" for="text"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
+            <div id="output">
+
+            </div>
+        </form>
     </div>
 </nav>
 
@@ -58,6 +68,7 @@
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/init_code_highlight.js"></script>
 
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/clipboard.min.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-ac.js"></script>
 <script>new ClipboardJS('a.ctrlc')</script>
 <script>$('.sidenav').sidenav()</script>
 </body>
