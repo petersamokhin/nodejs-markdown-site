@@ -29,7 +29,7 @@ Make your project documentation (or blog, or something else) with Markdown.
 
 ## Sample
 This readme page after rendering:<br>
-<img src="https://i.imgur.com/tFUfOZ5.png" width="500"></img>
+<img src="https://i.imgur.com/tFUfOZ5.png" width="700"></img>
 
 And mobile version (iPhone 8 Plus):<br>
 <img src="https://i.imgur.com/Qhf4mdu.jpg" width="300"></img>
