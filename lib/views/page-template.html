@@ -15,15 +15,22 @@
 </head>
 <body>
 <nav>
-    <div class="nav-wrapper hide-on-med-and-up">
+    <div class="nav-wrapper hide-on-med-and-up" id="mobile-nav-wrapper">
         <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
-        <a class="right brand-logo" id="logo-mobile">Markdown Knowledge Base</a>
+        <a class="right brand-logo" id="logo-mobile">Markdown Site</a>
         <ul id="nav-mobile" class="sidenav left">
             <li><a href="/markdown-knowledge-base">Главная</a></li>
             <li><a href="/markdown-knowledge-base/create">Добавить</a></li>
             <li><a href="/markdown-knowledge-base/manage-access">Управление доступами</a></li>
             <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
         </ul>
+        <form autocomplete="off">
+            <div class="input-field autocomplete" id="search-form-mobile">
+                <input id="search-text-mobile" type="search" required>
+                <label class="label-icon" for="search-text-mobile"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
+        </form>
     </div>
     <div class="nav-wrapper hide-on-small-only">
         <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
@@ -34,13 +41,10 @@
             <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
         </ul>
         <form autocomplete="off">
-            <div class="input-field autocomplete" id="search-form">
-                <input id="text" type="search" required>
-                <label class="label-icon" for="text"><i class="material-icons">search</i></label>
+            <div class="input-field autocomplete" id="search-form-pc">
+                <input id="search-text-pc" type="search" required>
+                <label class="label-icon" for="search-text-pc"><i class="material-icons">search</i></label>
                 <i class="material-icons">close</i>
-            </div>
-            <div id="output">
-
             </div>
         </form>
     </div>
