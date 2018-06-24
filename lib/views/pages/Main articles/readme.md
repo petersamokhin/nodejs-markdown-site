@@ -29,10 +29,10 @@ Make your project documentation (or blog, or something else) with Markdown.
 
 ## Sample
 This readme page after rendering:<br>
-![](https://i.imgur.com/tFUfOZ5.png)
+![](https://i.imgur.com/u5vKAf8.png)
 
 And mobile version (iPhone 8 Plus):<br>
-![](https://i.imgur.com/Qhf4mdu.jpg)
+![](https://i.imgur.com/33Dkp1F.jpg)
 
 ## Requirements
 - [NodeJS](https://github.com/nodejs/node) (+[ npm](https://github.com/npm/npm))
