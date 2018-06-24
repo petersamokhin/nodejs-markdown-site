@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Управление доступами | Markdown Website</title>
+    <title>Admin panel | Markdown Website</title>
 </head>
 <body>
 <nav class="nav-extended">
@@ -17,25 +17,25 @@
         <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
         <a class="right brand-logo" id="logo-mobile">Markdown Site</a>
         <ul id="nav-mobile" class="sidenav left">
-            <li><a href="/markdown-knowledge-base">Главная</a></li>
-            <li><a href="/markdown-knowledge-base/create">Добавить</a></li>
-            <li class="active"><a>Управление доступами</a></li>
-            <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
+            <li><a href="/markdown-knowledge-base">Home</a></li>
+            <li><a href="/markdown-knowledge-base/create">Add new article</a></li>
+            <li class="active"><a>Management</a></li>
+            <li><a href="/markdown-knowledge-base/logout">Log out</a></li>
         </ul>
     </div>
     <div class="nav-wrapper hide-on-small-only">
         <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
         <ul id="nav-pc" class="left">
-            <li><a href="/markdown-knowledge-base">Главная</a></li>
-            <li><a href="/markdown-knowledge-base/create">Добавить</a></li>
-            <li><a class="active">Управление доступами</a></li>
-            <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
+            <li><a href="/markdown-knowledge-base">Home</a></li>
+            <li><a href="/markdown-knowledge-base/create">Add new article</a></li>
+            <li><a class="active">Management</a></li>
+            <li><a href="/markdown-knowledge-base/logout">Log out</a></li>
         </ul>
     </div>
     <div class="nav-content">
         <ul class="tabs tabs-transparent">
-            <li class="tab" id="tab-all-settings"><a>Общее</a></li>
-            <li class="tab" id="tab-access-settings"><a>Доступы</a></li>
+            <li class="tab" id="tab-all-settings"><a>General settings</a></li>
+            <li class="tab" id="tab-access-settings"><a>Access management</a></li>
         </ul>
     </div>
 </nav>
@@ -61,7 +61,7 @@
             <!-- Path -->
             <div class="section" id="path-select-section">
                 <div class="col s11 section-header">
-                    <h4>Права для папок и категорий</h4>
+                    <h4>Roles for articles and folders (categories)</h4>
                 </div>
                 <div class="input-field col s11">
                     <select id="path-select" name="selected_path">
@@ -69,10 +69,10 @@
                         <option value="{{path}}">{{path}}</option>
                         {{/available_folders}}
                     </select>
-                    <label for="path-select">Папка или категория</label>
+                    <label for="path-select">Choose path:</label>
                 </div>
                 <div class="col s11 left-align">
-                    <div id="current-path-roles"><b>Текущие права папки:</b></div>
+                    <div id="current-path-roles"><b>Current path's roles:</b></div>
                 </div>
                 <div class="input-field col s11" id="path-roles-wrapper">
                     <select multiple name="path_roles" id="path-roles">
@@ -80,21 +80,21 @@
                         <option value="{{.}}">{{.}}</option>
                         {{/available_roles}}
                     </select>
-                    <label for="path-roles">Выбрать новые права доступа из уже существующих</label>
+                    <label for="path-roles">Choose one or several roles from existing</label>
                 </div>
                 <div class="input-field col s11 left-align" id="chips-wrapper">
-                    <input name="new_path_roles" type="tags" placeholder="Права доступа через запятую"/>
-                    <label class="chips-placeholder-label">Добавить новые права доступа</label>
+                    <input name="new_path_roles" type="tags" placeholder="Comma separated string with roles"/>
+                    <label class="chips-placeholder-label">Or add new roles</label>
                 </div>
                 <button type="submit" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn" name="change_roles_path"
                         id="change_roles_path">
-                    Применить
+                    Confirm
                 </button>
             </div>
             <!-- User -->
             <div class="section" id="user-select-section">
                 <div class="col s11 section-header">
-                    <h4>Права для пользователей</h4>
+                    <h4>Roles for users</h4>
                 </div>
                 <div class="input-field col s11">
                     <select id="user-select" name="selected_user">
@@ -102,10 +102,10 @@
                         <option value="{{login}}">{{login}}</option>
                         {{/available_users}}
                     </select>
-                    <label for="user-select">Пользователь</label>
+                    <label for="user-select">User</label>
                 </div>
                 <div class="col s11 left-align">
-                    <div id="current-user-roles"><b>Текущие права пользователя:</b></div>
+                    <div id="current-user-roles"><b>Current user's roles</b></div>
                 </div>
                 <div class="input-field col s11" id="user-roles-wrapper">
                     <select multiple name="user_roles" id="user-roles">
@@ -113,15 +113,15 @@
                         <option value="{{.}}">{{.}}</option>
                         {{/available_roles}}
                     </select>
-                    <label for="user-roles">Выбрать новые права доступа из уже существующих</label>
+                    <label for="user-roles">Choose one or several roles from existing</label>
                 </div>
                 <div class="input-field col s11 left-align chips-wrapper">
-                    <input name="new_user_roles" type="tags" placeholder="Права доступа через запятую"/>
-                    <label class="chips-placeholder-label">Добавить новые права доступа</label>
+                    <input name="new_user_roles" type="tags" placeholder="Comma separated string with roles"/>
+                    <label class="chips-placeholder-label">Or add new roles</label>
                 </div>
                 <button type="submit" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn" name="change_roles_user"
                         id="change_roles_user">
-                    Применить
+                    Confirm
                 </button>
             </div>
         </form>
