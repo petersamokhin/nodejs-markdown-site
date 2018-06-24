@@ -8,24 +8,21 @@ Make your project documentation (or blog, or something else) with Markdown.
 - HTML-generating on-the-fly from the Markdown files.
 - Generating of navigation on-the-fly.
 - Dynamic permissions management:
-  * Each user has a list of roles.
+  * Each user has a list of roles (roles are like GitHub's organization's groups).
   * Each page and directory should have a list of roles.
-  * User can see the page (including navigation) if he has at least one role from page's list.
-- Nice looking & adaptive design.
+  * User can see the page (in navigation too) if he has at least one role from page's list.
+- Search on all pages depending on access rights of current user.
 - Preview of result html page in creating page.
-- Fully configurable.
+- All settings and access rights are fully configurable (using admin panel or changing the code).
+- You can simply copy your markdown files to `views/pages/` and (if it necessary) manage access to paths — and then your documentation is ready :) All new pages and directories will be indexed at next page loading.
+- Nice looking & adaptive design for all screen sizes.
 - Other small but useful features:
   - Each header has `#link` to it
   - Most code snippets will have copy button on header above
-  - All `kramdown` features
-
-## TODO
-- [x] Better error handling.
-- [x] Global refactoring of code.
-- [ ] Store configuration in database.
-- [ ] Admin's page for change configurations (after previous paragraph).
-- [ ] Better visual editor (maybe like GitHub's).
-- [ ] Search.
+  - You can use all `kramdown` features
+  - `Main pages folder` from configuration will be always on top in navigation on each page.
+  - Pages will have default access rights from config and will be placed in `Main pages folder` if you wont specify path or roles.
+  - Advanced error handling (page with information about error will be shown for each error, so no crashes must occur)
 
 ## Sample
 This readme page after rendering:<br>
