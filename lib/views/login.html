@@ -28,8 +28,15 @@
 </nav>
 
 <div id="content" class="center">
-    <div class="row center" id="inputs">
+    <div class="row inputs">
         <form action="/markdown-knowledge-base/login" method="post">
+            {{#login_error}}
+            <div class="col s12">
+                <p style="color: red; font-size: 20px; font-weight: bold">
+                    {{login_error}}
+                </p>
+            </div>
+            {{/login_error}}
             <div class="input-field col s11">
                 <input type="text" id="login" name="login" required/>
                 <label for="login">Login</label>

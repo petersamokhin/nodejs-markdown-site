@@ -14,6 +14,7 @@ Make your project documentation (or blog, or something else) with Markdown.
 - Search on all pages depending on access rights of current user.
 - Preview of result html page in creating page.
 - All settings and access rights are fully configurable (using admin panel or changing the code).
+- Too easy to add new setting — admin panel is generated too. You simply need to add new setting and default value, and then you will be able to configure it in admin panel.
 - You can simply copy your markdown files to `views/pages/` and (if it necessary) manage access to paths — and then your documentation is ready :) All new pages and directories will be indexed at next page loading.
 - Nice looking & adaptive design for all screen sizes.
 - Other small but useful features:
