@@ -30,7 +30,7 @@
         <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
         <ul id="nav-pc" class="left">
             <li><a href="/markdown-knowledge-base">Главная</a></li>
-            <li class="active"><a>Добавить</a></li>
+            <li><a class="active">Добавить</a></li>
             <li><a href="/markdown-knowledge-base/manage-access">Управление доступами</a></li>
             <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
         </ul>
@@ -38,7 +38,7 @@
 </nav>
 
 <div id="content">
-    <div class="row center" id="inputs">
+    <div class="row center inputs">
         <form action="" method="post" id="markdown-form">
             <div class="input-field col s12 m11">
                 <input type="text" data-length="10" id="markdown-title" name="title" required/>
@@ -105,7 +105,6 @@
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/codemirror.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/mode/markdown.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/init_editable_code_highlight.js"></script>
-
 <script>
   $(document).ready(() => {
     $('.modal').modal()

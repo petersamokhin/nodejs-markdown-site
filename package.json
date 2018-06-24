@@ -42,6 +42,6 @@
     "copystatic": "cp -rf lib/views dist/views && cp -rf lib/public dist/public",
     "start": "node dist/app.js",
     "rebuild": "npm run build && npm run copystatic",
-    "rebuildstart": "npm run build && npm run copystatic && npm run start"
+    "rebuildstart": "npm run rebuild && npm run start"
   }
 }
