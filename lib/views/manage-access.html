@@ -6,16 +6,16 @@
 
     <link rel="stylesheet" href="/markdown-knowledge-base/codemirror/css/codemirror.css">
     <link rel="stylesheet" href="/markdown-knowledge-base/materialize/css/materialize.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>Управление доступами | Markdown Website</title>
 </head>
 <body>
-<nav>
+<nav class="nav-extended">
     <div class="nav-wrapper hide-on-med-and-up">
         <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
-        <a class="right brand-logo" id="logo-mobile">Markdown Knowledge Base</a>
+        <a class="right brand-logo" id="logo-mobile">Markdown Site</a>
         <ul id="nav-mobile" class="sidenav left">
             <li><a href="/markdown-knowledge-base">Главная</a></li>
             <li><a href="/markdown-knowledge-base/create">Добавить</a></li>
@@ -28,14 +28,20 @@
         <ul id="nav-pc" class="left">
             <li><a href="/markdown-knowledge-base">Главная</a></li>
             <li><a href="/markdown-knowledge-base/create">Добавить</a></li>
-            <li class="active"><a>Управление доступами</a></li>
+            <li><a class="active">Управление доступами</a></li>
             <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
+        </ul>
+    </div>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab" id="tab-all-settings"><a>Общее</a></li>
+            <li class="tab" id="tab-access-settings"><a>Доступы</a></li>
         </ul>
     </div>
 </nav>
 
 <div id="content">
-    <div class="row" id="inputs">
+    <div class="row inputs" id="access-settings" style="display: none;">
         <form action="" method="post" id="markdown-form">
             <!-- Path -->
             <div class="section" id="path-select-section">
@@ -65,8 +71,8 @@
                     <input name="new_path_roles" type="tags" placeholder="Права доступа через запятую"/>
                     <label class="chips-placeholder-label">Добавить новые права доступа</label>
                 </div>
-                <button type="submit" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn"
-                        name="change_roles_path" id="change_roles_path">
+                <button type="submit" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn" name="change_roles_path"
+                        id="change_roles_path">
                     Применить
                 </button>
             </div>
@@ -98,11 +104,16 @@
                     <input name="new_user_roles" type="tags" placeholder="Права доступа через запятую"/>
                     <label class="chips-placeholder-label">Добавить новые права доступа</label>
                 </div>
-                <button type="submit" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn" name="change_roles_user" id="change_roles_user">
+                <button type="submit" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn" name="change_roles_user"
+                        id="change_roles_user">
                     Применить
                 </button>
             </div>
         </form>
+    </div>
+    <div class="row inputs" id="admin-settings">
+         <form action="manage-access/change-settings" method="post" id="admin-settings-form">
+         </form>
     </div>
 </div>
 
@@ -111,9 +122,9 @@
 <script type="application/javascript" src="/markdown-knowledge-base/markdown/js/nav.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/materialize/js/materialize.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/materialize/js/init-select-multiple.js"></script>
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-manage-access.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/tags-input.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/init-tags-input.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-manage-access.js"></script>
-<script>$('.sidenav').sidenav()</script>
+<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-admin-settings.js"></script>
 </body>
 </html>
