@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
     <title>{{title}}</title>
-    <link rel="stylesheet" href="/markdown-knowledge-base/materialize/css/materialize.css">
-    <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
+    <link rel="stylesheet" href="{{path_prefix}}/materialize/css/materialize.css">
+    <link rel="stylesheet" href="{{path_prefix}}/site/css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -14,22 +14,22 @@
         <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
         <a class="right brand-logo" id="logo-mobile">Markdown Knowledge Base</a>
         <ul id="nav-mobile" class="sidenav left">
-            <li><a href="/markdown-knowledge-base">Home</a></li>
-            <li><a href="/markdown-knowledge-base/logout">Log out</a></li>
+            <li><a href="{{path_prefix}}">Home</a></li>
+            <li><a href="{{path_prefix}}/logout">Log out</a></li>
         </ul>
     </div>
     <div class="nav-wrapper hide-on-small-only">
         <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
         <ul id="nav-pc" class="left">
-            <li><a href="/markdown-knowledge-base">Home</a></li>
-            <li><a href="/markdown-knowledge-base/logout">Log out</a></li>
+            <li><a href="{{path_prefix}}">Home</a></li>
+            <li><a href="{{path_prefix}}/logout">Log out</a></li>
         </ul>
     </div>
 </nav>
 
 <div id="content" class="center">
     <div class="row inputs">
-        <form action="/markdown-knowledge-base/login" method="post">
+        <form action="{{path_prefix}}/login" method="post">
             {{#login_error}}
             <div class="col s12">
                 <p style="color: red; font-size: 20px; font-weight: bold">
@@ -54,7 +54,7 @@
         </form>
     </div>
 </div>
-<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/materialize.min.js"></script>
+<script type="application/javascript" src="{{path_prefix}}/materialize/js/materialize.min.js"></script>
 <script>$('.sidenav').sidenav()</script>
 </body>
 </html>

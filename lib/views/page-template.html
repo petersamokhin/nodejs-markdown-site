@@ -4,11 +4,11 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="/markdown-knowledge-base/markdown/css/markdown.css">
-    <link rel="stylesheet" href="/markdown-knowledge-base/markdown/css/kotlin-site-default.css">
-    <link rel="stylesheet" href="/markdown-knowledge-base/markdown/css/kotlin-site-common.css">
-    <link rel="stylesheet" href="/markdown-knowledge-base/materialize/css/materialize.css">
-    <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
+    <link rel="stylesheet" href="{path_prefix}/markdown/css/markdown.css">
+    <link rel="stylesheet" href="{path_prefix}/markdown/css/kotlin-site-default.css">
+    <link rel="stylesheet" href="{path_prefix}/markdown/css/kotlin-site-common.css">
+    <link rel="stylesheet" href="{path_prefix}/materialize/css/materialize.css">
+    <link rel="stylesheet" href="{path_prefix}/site/css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>{title}</title>
@@ -19,10 +19,10 @@
         <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
         <a class="right brand-logo" id="logo-mobile">Markdown Site</a>
         <ul id="nav-mobile" class="sidenav left">
-            <li><a href="/markdown-knowledge-base">Home</a></li>
-            <li><a href="/markdown-knowledge-base/create">Add new article</a></li>
-            <li><a href="/markdown-knowledge-base/manage-access">Management</a></li>
-            <li><a href="/markdown-knowledge-base/logout">Log out</a></li>
+            <li><a href="{path_prefix}">Home</a></li>
+            <li><a href="{path_prefix}/create">Add new article</a></li>
+            <li><a href="{path_prefix}/manage-access">Management</a></li>
+            <li><a href="{path_prefix}/logout">Log out</a></li>
         </ul>
         <form autocomplete="off">
             <div class="input-field autocomplete" id="search-form-mobile">
@@ -35,10 +35,10 @@
     <div class="nav-wrapper hide-on-small-only">
         <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
         <ul id="nav-pc" class="left">
-            <li><a href="/markdown-knowledge-base">Home</a></li>
-            <li><a href="/markdown-knowledge-base/create">Add new article</a></li>
-            <li><a href="/markdown-knowledge-base/manage-access">Management</a></li>
-            <li><a href="/markdown-knowledge-base/logout">Log out</a></li>
+            <li><a href="{path_prefix}">Home</a></li>
+            <li><a href="{path_prefix}/create">Add new article</a></li>
+            <li><a href="{path_prefix}/manage-access">Management</a></li>
+            <li><a href="{path_prefix}/logout">Log out</a></li>
         </ul>
         <form autocomplete="off">
             <div class="input-field autocomplete" id="search-form-pc">
@@ -67,24 +67,23 @@
 </button>
 
 <!-- Scripts -->
-<script type="application/javascript" src="/markdown-knowledge-base/site/js/jquery-3.3.1.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/materialize.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/markdown/js/nav.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/codemirror.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/runmode.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/colorize.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/mode/clike.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/mode/shell.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/codemirror/js/init_code_highlight.js"></script>
-
-<script type="application/javascript" src="/markdown-knowledge-base/site/js/clipboard.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-ac.js"></script>
+<script type="application/javascript" src="{path_prefix}/site/js/jquery-3.3.1.min.js"></script>
+<script type="application/javascript" src="{path_prefix}/materialize/js/materialize.min.js"></script>
+<script type="application/javascript" src="{path_prefix}/markdown/js/nav.js"></script>
+<script type="application/javascript" src="{path_prefix}/codemirror/js/codemirror.min.js"></script>
+<script type="application/javascript" src="{path_prefix}/codemirror/js/runmode.min.js"></script>
+<script type="application/javascript" src="{path_prefix}/codemirror/js/colorize.min.js"></script>
+<script type="application/javascript" src="{path_prefix}/codemirror/js/mode/clike.min.js"></script>
+<script type="application/javascript" src="{path_prefix}/codemirror/js/mode/shell.min.js"></script>
+<script type="application/javascript" src="{path_prefix}/codemirror/js/init_code_highlight.js"></script>
+<script type="application/javascript" src="{path_prefix}/site/js/clipboard.min.js"></script>
+<script type="application/javascript" src="{path_prefix}/site/js/init-ac.js"></script>
 <script>new ClipboardJS('a.ctrlc')</script>
 <script>$('.sidenav').sidenav()</script>
 <script>
     function editPage () {
-      let path = '/markdown-knowledge-base/edit?path=' + window.location.pathname.substring(window.location.pathname.indexOf('/pages'))
-      if (path.indexOf('/pages') === -1) path = '/markdown-knowledge-base/edit?path=/'
+      let path = '{path_prefix}/edit?path=' + window.location.pathname.substring(window.location.pathname.indexOf('/pages'))
+      if (path.indexOf('/pages') === -1) path = '{path_prefix}/edit?path=/'
       window.location.href = path
     }
 </script>
