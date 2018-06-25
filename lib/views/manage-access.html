@@ -4,9 +4,9 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="/markdown-knowledge-base/codemirror/css/codemirror.css">
-    <link rel="stylesheet" href="/markdown-knowledge-base/materialize/css/materialize.css">
-    <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
+    <link rel="stylesheet" href="{{path_prefix}}/codemirror/css/codemirror.css">
+    <link rel="stylesheet" href="{{path_prefix}}/materialize/css/materialize.css">
+    <link rel="stylesheet" href="{{path_prefix}}/site/css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>Admin panel | Markdown Website</title>
@@ -17,19 +17,19 @@
         <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
         <a class="right brand-logo" id="logo-mobile">Markdown Site</a>
         <ul id="nav-mobile" class="sidenav left">
-            <li><a href="/markdown-knowledge-base">Home</a></li>
-            <li><a href="/markdown-knowledge-base/create">Add new article</a></li>
+            <li><a href="{{path_prefix}}">Home</a></li>
+            <li><a href="{{path_prefix}}/create">Add new article</a></li>
             <li class="active"><a>Management</a></li>
-            <li><a href="/markdown-knowledge-base/logout">Log out</a></li>
+            <li><a href="{{path_prefix}}/logout">Log out</a></li>
         </ul>
     </div>
     <div class="nav-wrapper hide-on-small-only">
         <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
         <ul id="nav-pc" class="left">
-            <li><a href="/markdown-knowledge-base">Home</a></li>
-            <li><a href="/markdown-knowledge-base/create">Add new article</a></li>
+            <li><a href="{{path_prefix}}">Home</a></li>
+            <li><a href="{{path_prefix}}/create">Add new article</a></li>
             <li><a class="active">Management</a></li>
-            <li><a href="/markdown-knowledge-base/logout">Log out</a></li>
+            <li><a href="{{path_prefix}}/logout">Log out</a></li>
         </ul>
     </div>
     <div class="nav-content">
@@ -133,13 +133,13 @@
 </div>
 
 <!-- Scripts -->
-<script type="application/javascript" src="/markdown-knowledge-base/site/js/jquery-3.3.1.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/markdown/js/nav.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/materialize.min.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/materialize/js/init-select-multiple.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-manage-access.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/site/js/tags-input.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-tags-input.js"></script>
-<script type="application/javascript" src="/markdown-knowledge-base/site/js/init-admin-settings.js"></script>
+<script type="application/javascript" src="{{path_prefix}}/site/js/jquery-3.3.1.min.js"></script>
+<script type="application/javascript" src="{{path_prefix}}/markdown/js/nav.js"></script>
+<script type="application/javascript" src="{{path_prefix}}/materialize/js/materialize.min.js"></script>
+<script type="application/javascript" src="{{path_prefix}}/materialize/js/init-select-multiple.js"></script>
+<script type="application/javascript" src="{{path_prefix}}/site/js/init-manage-access.js"></script>
+<script type="application/javascript" src="{{path_prefix}}/site/js/tags-input.js"></script>
+<script type="application/javascript" src="{{path_prefix}}/site/js/init-tags-input.js"></script>
+<script type="application/javascript" src="{{path_prefix}}/site/js/init-admin-settings.js"></script>
 </body>
 </html>
