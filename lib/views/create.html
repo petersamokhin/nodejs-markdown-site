@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/markdown-knowledge-base/site/css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Add new article | Markdown Website</title>
+    <title>Добавить статью | Markdown Website</title>
 </head>
 <body>
 <nav>
@@ -20,32 +20,50 @@
         <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
         <a class="right brand-logo" id="logo-mobile">Markdown Knowledge Base</a>
         <ul id="nav-mobile" class="sidenav left">
-            <li><a href="/markdown-knowledge-base">Home</a></li>
-            <li class="active"><a>Add new article</a></li>
-            <li><a href="/markdown-knowledge-base/manage-access">Management</a></li>
-            <li><a href="/markdown-knowledge-base/logout">Log out</a></li>
+            <li><a href="/markdown-knowledge-base">Главная</a></li>
+            <li class="active"><a>Добавить</a></li>
+            <li><a href="/markdown-knowledge-base/manage-access">Управление доступами</a></li>
+            <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
         </ul>
     </div>
     <div class="nav-wrapper hide-on-small-only">
         <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
         <ul id="nav-pc" class="left">
-            <li><a href="/markdown-knowledge-base">Home</a></li>
-            <li><a class="active">Add new article</a></li>
-            <li><a href="/markdown-knowledge-base/manage-access">Management</a></li>
-            <li><a href="/markdown-knowledge-base/logout">Log out</a></li>
+            <li><a href="/markdown-knowledge-base">Главная</a></li>
+            <li><a class="active">Добавить</a></li>
+            <li><a href="/markdown-knowledge-base/manage-access">Управление доступами</a></li>
+            <li><a href="/markdown-knowledge-base/logout">Выйти</a></li>
         </ul>
     </div>
 </nav>
 
 <div id="content">
     <div class="row center inputs">
-        <form action="" method="post" id="markdown-form">
+        <form action="/markdown-knowledge-base/create" method="post" id="markdown-form">
             <div class="input-field col s12 m11">
+<<<<<<< Updated upstream
                 <input type="text" data-length="10" id="markdown-title" name="title" required/>
+                <label for="markdown-title">Заголовок статьи</label>
+            </div>
+            <label class="col s12 m11" id="markdown-input-label">
+                <textarea id="markdown-input" name="markdown"># Текст статьи</textarea>
+=======
+                {{#edit_title}}
+                <input type="text" id="markdown-title" name="title" value="{{edit_title}}" required/>
+                {{/edit_title}}
+                {{^edit_title}}
+                <input type="text" id="markdown-title" name="title" required/>
+                {{/edit_title}}
                 <label for="markdown-title">Title</label>
             </div>
             <label class="col s12 m11" id="markdown-input-label">
+                {{#edit_text}}
+                <textarea id="markdown-input" name="markdown">{{edit_text}}</textarea>
+                {{/edit_text}}
+                {{^edit_text}}
                 <textarea id="markdown-input" name="markdown"># Article text</textarea>
+                {{/edit_text}}
+>>>>>>> Stashed changes
             </label>
             <button type="submit" class="btn-floating btn-large waves-effect waves-light indigo right col"
                     id="submit-btn-create">
@@ -56,30 +74,34 @@
                     id="btn-preview" onclick="showPreview()">
                 <i class="material-icons">remove_red_eye</i>
             </button>
-            <div class="input-field col s12 m11" id="path-select-wrapper">
+            <div class="input-field col s12 m11 tooltipped" id="path-select-wrapper">
                 <select id="path-select" name="path">
                     {{#available_folders}}
                     <option value="{{.}}">{{.}}</option>
                     {{/available_folders}}
                 </select>
-                <label for="path-select" id="path-select-label">Choose one of existing paths for where to place the article</label>
+                <label for="path-select" id="path-select-label">Существующая папка или категория статьи (для навигации и
+                    иерархии)</label>
             </div>
-            <div class="input-field col s12 m11">
+            <div class="input-field col s12 m11 tooltipped" data-position="left" data-tooltip="You're editing page, not creating">
                 <input type="text" data-length="10" id="new-folder-input" name="new_path"/>
-                <label for="new-folder-input">Or add new path for article</label>
+                <label for="new-folder-input">Новая папка или категория</label>
             </div>
             <div class="input-field col s12 m11" id="select-roles-wrapper">
                 <select multiple name="roles" id="select-roles">
                     {{#available_roles}}
-                    <option value="{{.}}">{{.}}</option>
+                    <option value="{{.}}" id="{{.}}">{{.}}</option>
                     {{/available_roles}}
                 </select>
-                <label for="select-roles">Choose one or several roles from existing</label>
+                <label for="select-roles">Выбрать уже существующие права доступа</label>
             </div>
             <div class="input-field col s12 m11 left-align" id="chips-wrapper">
-                <input name="new_roles" type="tags" placeholder="Comma separated string with roles"/>
-                <label class="chips-placeholder-label">Or add new roles</label>
+                <input name="new_roles" type="tags" placeholder="Права доступа через запятую"/>
+                <label class="chips-placeholder-label">Добавить новые права доступа</label>
             </div>
+            {{#edit_full_path}}
+            <input type="hidden" name="old_path" value="{{edit_full_path}}">
+            {{/edit_full_path}}
         </form>
     </div>
 </div>
@@ -107,17 +129,32 @@
 <script>
   $(document).ready(() => {
     $('.modal').modal()
-  })
-    function showPreview () {
-      $.post('/markdown-knowledge-base/preview', {
-        markdown: editor.getValue()
-      }).done((data) => {
-        $('#preview-modal').modal('open')
-        $('#preview-modal-content').html(data.html)
+    if ({{edit_mode}}) {
 
-        console.log(JSON.stringify(data, null, 4))
-      })
+      // path
+      let editPage = 'option[value="' + "{{edit_path}}".replace(/&#x2F;/g, '/') + '"]';
+      $(editPage).attr('selected', '')
+      $('#path-select').formSelect()
+
+      // roles
+      {{#edit_roles}}
+      $('#{{.}}').attr('selected', '')
+      {{/edit_roles}}
+      $('#select-roles').formSelect()
     }
+  })
+  initTagsInput()
+
+  function showPreview () {
+    $.post('/markdown-knowledge-base/preview', {
+      markdown: editor.getValue()
+    }).done((data) => {
+      $('#preview-modal').modal('open')
+      $('#preview-modal-content').html(data.html)
+
+      console.log(JSON.stringify(data, null, 4))
+    })
+  }
 </script>
 <script>$('.sidenav').sidenav()</script>
 </body>

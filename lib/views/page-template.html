@@ -60,6 +60,12 @@
     </article>
 </div>
 
+<button type="button"
+        class="btn-floating btn-large waves-effect waves-light indigo right col modal-trigger"
+        id="btn-edit-page" onclick="editPage()">
+    <i class="material-icons">edit</i>
+</button>
+
 <!-- Scripts -->
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/jquery-3.3.1.min.js"></script>
 <script type="application/javascript" src="/markdown-knowledge-base/materialize/js/materialize.min.js"></script>
@@ -75,5 +81,12 @@
 <script type="application/javascript" src="/markdown-knowledge-base/site/js/init-ac.js"></script>
 <script>new ClipboardJS('a.ctrlc')</script>
 <script>$('.sidenav').sidenav()</script>
+<script>
+    function editPage () {
+      let path = '/markdown-knowledge-base/edit?path=' + window.location.pathname.substring(window.location.pathname.indexOf('/pages'))
+      if (path.indexOf('/pages') === -1) path = '/markdown-knowledge-base/edit?path=/'
+      window.location.href = path
+    }
+</script>
 </body>
 </html>
