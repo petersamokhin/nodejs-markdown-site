@@ -41,13 +41,11 @@
     <div class="row center inputs">
         <form action="/markdown-knowledge-base/create" method="post" id="markdown-form">
             <div class="input-field col s12 m11">
-<<<<<<< Updated upstream
                 <input type="text" data-length="10" id="markdown-title" name="title" required/>
                 <label for="markdown-title">Заголовок статьи</label>
             </div>
             <label class="col s12 m11" id="markdown-input-label">
                 <textarea id="markdown-input" name="markdown"># Текст статьи</textarea>
-=======
                 {{#edit_title}}
                 <input type="text" id="markdown-title" name="title" value="{{edit_title}}" required/>
                 {{/edit_title}}
@@ -63,7 +61,6 @@
                 {{^edit_text}}
                 <textarea id="markdown-input" name="markdown"># Article text</textarea>
                 {{/edit_text}}
->>>>>>> Stashed changes
             </label>
             <button type="submit" class="btn-floating btn-large waves-effect waves-light indigo right col"
                     id="submit-btn-create">
