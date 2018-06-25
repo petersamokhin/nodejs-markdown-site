@@ -13,7 +13,7 @@
 class TestJavaCode {
 
     /**
-     * psvm 'Hello world!'
+     * psvm 'Hello world'
      * 
      * @param args Args
      */

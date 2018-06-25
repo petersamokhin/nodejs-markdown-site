@@ -39,13 +39,31 @@
 
 <div id="content">
     <div class="row center inputs">
-        <form action="" method="post" id="markdown-form">
+        <form action="/markdown-knowledge-base/create" method="post" id="markdown-form">
             <div class="input-field col s12 m11">
+<<<<<<< Updated upstream
                 <input type="text" data-length="10" id="markdown-title" name="title" required/>
                 <label for="markdown-title">Заголовок статьи</label>
             </div>
             <label class="col s12 m11" id="markdown-input-label">
                 <textarea id="markdown-input" name="markdown"># Текст статьи</textarea>
+=======
+                {{#edit_title}}
+                <input type="text" id="markdown-title" name="title" value="{{edit_title}}" required/>
+                {{/edit_title}}
+                {{^edit_title}}
+                <input type="text" id="markdown-title" name="title" required/>
+                {{/edit_title}}
+                <label for="markdown-title">Title</label>
+            </div>
+            <label class="col s12 m11" id="markdown-input-label">
+                {{#edit_text}}
+                <textarea id="markdown-input" name="markdown">{{edit_text}}</textarea>
+                {{/edit_text}}
+                {{^edit_text}}
+                <textarea id="markdown-input" name="markdown"># Article text</textarea>
+                {{/edit_text}}
+>>>>>>> Stashed changes
             </label>
             <button type="submit" class="btn-floating btn-large waves-effect waves-light indigo right col"
                     id="submit-btn-create">
@@ -56,7 +74,7 @@
                     id="btn-preview" onclick="showPreview()">
                 <i class="material-icons">remove_red_eye</i>
             </button>
-            <div class="input-field col s12 m11" id="path-select-wrapper">
+            <div class="input-field col s12 m11 tooltipped" id="path-select-wrapper">
                 <select id="path-select" name="path">
                     {{#available_folders}}
                     <option value="{{.}}">{{.}}</option>
@@ -65,14 +83,14 @@
                 <label for="path-select" id="path-select-label">Существующая папка или категория статьи (для навигации и
                     иерархии)</label>
             </div>
-            <div class="input-field col s12 m11">
+            <div class="input-field col s12 m11 tooltipped" data-position="left" data-tooltip="You're editing page, not creating">
                 <input type="text" data-length="10" id="new-folder-input" name="new_path"/>
                 <label for="new-folder-input">Новая папка или категория</label>
             </div>
             <div class="input-field col s12 m11" id="select-roles-wrapper">
                 <select multiple name="roles" id="select-roles">
                     {{#available_roles}}
-                    <option value="{{.}}">{{.}}</option>
+                    <option value="{{.}}" id="{{.}}">{{.}}</option>
                     {{/available_roles}}
                 </select>
                 <label for="select-roles">Выбрать уже существующие права доступа</label>
@@ -81,6 +99,9 @@
                 <input name="new_roles" type="tags" placeholder="Права доступа через запятую"/>
                 <label class="chips-placeholder-label">Добавить новые права доступа</label>
             </div>
+            {{#edit_full_path}}
+            <input type="hidden" name="old_path" value="{{edit_full_path}}">
+            {{/edit_full_path}}
         </form>
     </div>
 </div>
@@ -108,17 +129,32 @@
 <script>
   $(document).ready(() => {
     $('.modal').modal()
-  })
-    function showPreview () {
-      $.post('/markdown-knowledge-base/preview', {
-        markdown: editor.getValue()
-      }).done((data) => {
-        $('#preview-modal').modal('open')
-        $('#preview-modal-content').html(data.html)
+    if ({{edit_mode}}) {
 
-        console.log(JSON.stringify(data, null, 4))
-      })
+      // path
+      let editPage = 'option[value="' + "{{edit_path}}".replace(/&#x2F;/g, '/') + '"]';
+      $(editPage).attr('selected', '')
+      $('#path-select').formSelect()
+
+      // roles
+      {{#edit_roles}}
+      $('#{{.}}').attr('selected', '')
+      {{/edit_roles}}
+      $('#select-roles').formSelect()
     }
+  })
+  initTagsInput()
+
+  function showPreview () {
+    $.post('/markdown-knowledge-base/preview', {
+      markdown: editor.getValue()
+    }).done((data) => {
+      $('#preview-modal').modal('open')
+      $('#preview-modal-content').html(data.html)
+
+      console.log(JSON.stringify(data, null, 4))
+    })
+  }
 </script>
 <script>$('.sidenav').sidenav()</script>
 </body>
