@@ -142,7 +142,7 @@
         <h6>This action can't be undone.</h6>
     </div>
     <div class="modal-footer">
-        <a href="" class="modal-close waves-effect waves-green btn-flat" onclick="deletePage('{{edit_full_path}}')">Agree</a>
+        <a class="modal-close waves-effect waves-green btn-flat" onclick="deletePage('{{edit_full_path}}')">Agree</a>
     </div>
 </div>
 
@@ -166,53 +166,53 @@
   function editorAction (action) {
     let value = editor.getSelection()
     switch (action) {
-      case "h1": {
+      case 'h1': {
         value = value.length > 0 ? '# ' + value : '\n# '
-        break;
+        break
       }
-      case "h2": {
+      case 'h2': {
         value = value.length > 0 ? '## ' + value : '\n## '
-        break;
+        break
       }
-      case "h3": {
+      case 'h3': {
         value = value.length > 0 ? '### ' + value : '\n### '
-        break;
+        break
       }
-      case "link": {
+      case 'link': {
         value = `[${value}](PASTE LINK HERE)`
-        break;
+        break
       }
-      case "image": {
+      case 'image': {
         value = `![${value}](PASTE LINK TO IMAGE HERE)`
-        break;
+        break
       }
-      case "bold": {
+      case 'bold': {
         value = `**${value}**`
-        break;
+        break
       }
-      case "italic": {
+      case 'italic': {
         value = '_' + value + '_'
-        break;
+        break
       }
-      case "list-markers": {
+      case 'list-markers': {
         value = `- ${value}`
-        break;
+        break
       }
-      case "list-numbers": {
+      case 'list-numbers': {
         value = `1. ${value}`
-        break;
+        break
       }
-      case "code": {
+      case 'code': {
         value = '```\n' + value + '```'
-        break;
+        break
       }
-      case "quote": {
-        value = '> ' + value;
-        break;
+      case 'quote': {
+        value = '> ' + value
+        break
       }
-      case "hr": {
+      case 'hr': {
         value = value + '\n\n---'
-        break;
+        break
       }
     }
 
@@ -236,12 +236,11 @@
     $.ajax({
       type: 'DELETE',
       url: '{{path_prefix}}/create'.replace(/&#x2F;/g, '/'),
-      timeout: 200,
       data: {
         path: page
-      },
-      success: () => { window.location.href = '{{path_prefix}}'.replace(/&#x2F;/g, '/')}
+      }
     })
+    window.location.href = '{{path_prefix}}'.replace(/&#x2F;/g, '/')
   }
 </script>
 <script>
@@ -250,7 +249,7 @@
     {{#edit_mode}}
 
     // path
-    let editPage = 'option[value="' + "{{edit_path}}".replace(/&#x2F;/g, '/') + '"]';
+    let editPage = 'option[value="' + '{{edit_path}}'.replace(/&#x2F;/g, '/') + '"]'
     $(editPage).attr('selected', '')
     $('#path-select').formSelect()
 
