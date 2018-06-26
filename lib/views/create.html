@@ -90,6 +90,13 @@
                     id="btn-preview" onclick="showPreview()">
                 <i class="material-icons">remove_red_eye</i>
             </button>
+            {{#edit_mode}}
+            <button type="button"
+                    class="btn-floating btn-large waves-effect waves-light right col modal-trigger"
+                    id="btn-delete" onclick="showDeleteConfirm()">
+                <i class="material-icons">delete</i>
+            </button>
+            {{/edit_mode}}
             <div class="input-field col s12 m11" id="path-select-wrapper">
                 <select id="path-select" name="path">
                     {{#available_folders}}
@@ -128,6 +135,17 @@
     </div>
 </div>
 
+<div id="delete-modal" class="modal">
+    <div class="modal-content">
+        <h5 class="left" style="margin-bottom: 50px; width: 100%">Are you sure want to delete?</h5>
+        <h6>File <b>{{edit_full_path}}</b> will be deleted.</h6>
+        <h6>This action can't be undone.</h6>
+    </div>
+    <div class="modal-footer">
+        <a href="" class="modal-close waves-effect waves-green btn-flat" onclick="deletePage('{{edit_full_path}}')">Agree</a>
+    </div>
+</div>
+
 <!-- Scripts -->
 <script type="application/javascript" src="{{path_prefix}}/site/js/jquery-3.3.1.min.js"></script>
 <script type="application/javascript" src="{{path_prefix}}/site/js/tags-input.js"></script>
@@ -143,31 +161,7 @@
     $('.modal').modal()
 
     initTagsInput()
-
-    {{#edit_mode}}
-
-    // path
-    let editPage = 'option[value="' + "{{edit_path}}".replace(/&#x2F;/g, '/') + '"]';
-    $(editPage).attr('selected', '')
-    $('#path-select').formSelect()
-
-    // roles
-    {{#edit_roles}}
-    $('#{{.}}').attr('selected', '')
-    {{/edit_roles}}
-    $('#select-roles').formSelect()
-    {{/edit_mode}}
-
-    })
-
-  function showPreview () {
-    $.post('preview', {
-      markdown: editor.getValue()
-    }).done((data) => {
-      $('#preview-modal').modal('open')
-      $('#preview-modal-content').html(data.html)
-    })
-  }
+  })
 
   function editorAction (action) {
     let value = editor.getSelection()
@@ -224,6 +218,50 @@
 
     editor.replaceSelection(value)
   }
+
+  function showDeleteConfirm () {
+    $('#delete-modal').modal('open')
+  }
+
+  function showPreview () {
+    $.post('preview', {
+      markdown: editor.getValue()
+    }).done((data) => {
+      $('#preview-modal').modal('open')
+      $('#preview-modal-content').html(data.html)
+    })
+  }
+
+  function deletePage (page) {
+    $.ajax({
+      type: 'DELETE',
+      url: '{{path_prefix}}/create'.replace(/&#x2F;/g, '/'),
+      timeout: 200,
+      data: {
+        path: page
+      },
+      success: () => { window.location.href = '{{path_prefix}}'.replace(/&#x2F;/g, '/')}
+    })
+  }
+</script>
+<script>
+  $(document).ready(() => {
+
+    {{#edit_mode}}
+
+    // path
+    let editPage = 'option[value="' + "{{edit_path}}".replace(/&#x2F;/g, '/') + '"]';
+    $(editPage).attr('selected', '')
+    $('#path-select').formSelect()
+
+    // roles
+    {{#edit_roles}}
+    $('#{{.}}').attr('selected', '')
+    {{/edit_roles}}
+    $('#select-roles').formSelect()
+    {{/edit_mode}}
+
+    })
 </script>
 <script>$('.sidenav').sidenav()</script>
 </body>

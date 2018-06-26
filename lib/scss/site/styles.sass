@@ -124,6 +124,14 @@ h1:hover .ctrlc
 #btn-preview
   z-index: 1000
 
+#btn-delete
+  background-color: rgba(240, 0, 0, 0.75)
+  z-index: 1000
+
+#delete-modal
+  width: 500px !important
+  height: auto !important
+
 .autocomplete-items
   position: absolute
   border: 1px solid #d4d4d4
@@ -270,13 +278,18 @@ h1:hover .ctrlc
 
   #submit-btn-create
     position: fixed
-    right: 20px
-    bottom: 40px !important
+    right: 10px
+    bottom: 135px !important
 
   #btn-preview
     position: fixed
-    right: 20px
-    bottom: 100px !important
+    right: 10px
+    bottom: 75px !important
+
+  #btn-delete
+    position: fixed
+    right: 10px
+    bottom: 15px !important
 
   #path-select-label
     margin-top: -15px
@@ -319,5 +332,9 @@ h1:hover .ctrlc
   #btn-preview
     position: fixed
     top: 270px
+
+  #btn-delete
+    position: fixed
+    top: 340px
 
 @import "create"
