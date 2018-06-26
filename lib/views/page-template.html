@@ -77,7 +77,6 @@
 <script type="application/javascript" src="{path_prefix}/codemirror/js/mode/shell.min.js"></script>
 <script type="application/javascript" src="{path_prefix}/codemirror/js/init_code_highlight.js"></script>
 <script type="application/javascript" src="{path_prefix}/site/js/clipboard.min.js"></script>
-<script type="application/javascript" src="{path_prefix}/site/js/init-ac.js"></script>
 <script>new ClipboardJS('a.ctrlc')</script>
 <script>$('.sidenav').sidenav()</script>
 <script>
@@ -88,9 +87,10 @@
     }
 
     $(document).ready(() => {
-      autocomplete(document.getElementById('search-text-mobile', '{path_prefix}/search'))
-      autocomplete(document.getElementById('search-text-pc', '{path_prefix}/search'))
+      autocomplete(document.getElementById('search-text-mobile'), '{path_prefix}/search')
+      autocomplete(document.getElementById('search-text-pc'), '{path_prefix}/search')
     })
 </script>
+<script type="application/javascript" src="{path_prefix}/site/js/init-ac.js"></script>
 </body>
 </html>
