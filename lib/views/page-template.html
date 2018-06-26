@@ -86,6 +86,11 @@
       if (path.indexOf('/pages') === -1) path = '{path_prefix}/edit?path=/'
       window.location.href = path
     }
+
+    $(document).ready(() => {
+      autocomplete(document.getElementById('search-text-mobile', '{path_prefix}/search'))
+      autocomplete(document.getElementById('search-text-pc', '{path_prefix}/search'))
+    })
 </script>
 </body>
 </html>
