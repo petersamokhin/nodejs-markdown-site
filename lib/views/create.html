@@ -139,6 +139,9 @@
                 <input name="new_roles" type="tags" placeholder="Comma separated string with roles"/>
                 <label class="chips-placeholder-label">Or add new roles</label>
             </div>
+            {{#edit_full_path}}
+            <input type="hidden" value="{{edit_full_path}}" name="old_path">
+            {{/edit_full_path}}
         </form>
     </div>
 </div>

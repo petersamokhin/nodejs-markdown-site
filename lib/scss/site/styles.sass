@@ -125,7 +125,7 @@ h1:hover .ctrlc
   z-index: 1000
 
 #btn-delete
-  background-color: rgba(240, 0, 0, 0.75)
+  background-color: #e64646
   z-index: 1000
 
 #delete-modal
@@ -245,6 +245,12 @@ h1:hover .ctrlc
   border-bottom-right-radius: 3px
   border-right: 1px solid rgba(27, 31, 35, 0.2)
 
+
+.confirm-delete-btn
+  background-color: #e64646 !important
+
+/////////
+
 @media only screen and (max-width: 800px)
   #logo-a
     display: none
@@ -340,5 +346,8 @@ h1:hover .ctrlc
   #btn-delete
     position: fixed
     top: 340px
+
+  .confirm-delete-btn
+    margin-left: 45px !important
 
 @import "create"
