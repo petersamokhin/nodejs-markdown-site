@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  mdsite:
+    image: mdsite
+    container_name: mdsite
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile
