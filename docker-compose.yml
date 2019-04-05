@@ -8,3 +8,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+
+networks:
+  mongo-docker_mongo_net:
+    external: true
