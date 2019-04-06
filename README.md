@@ -35,34 +35,88 @@ And mobile version (iPhone 8 Plus):<br>
 <img src="https://i.imgur.com/LyiX1FL.jpg" width="300"></img>
 
 ## Requirements
-- [NodeJS](https://github.com/nodejs/node) (+[ npm](https://github.com/npm/npm))
-- [MongoDB](https://github.com/mongodb/mongo) (used for `passport` sessions, user and paths info)
-- Ruby (for `kramdown` library)
-- `babel`
-- `node-sass` (not so necessary if you don't want to change the existing styles, and you still can use plain css)
+- docker
+- docker-compose
+And any OS.
 
 ## Install
-1. Clone the repo. I'm not gonna to upload project to npm, etc.
+1. Make some directory for installing mongodb from docker:
+```bash
+cd ~
+mkdir /mongodocker
+```
+
+2. Copy necessary files from mongo-docker repository:
+```bash
+export MONGODB_VERSION=4.0
+curl -O --remote-name-all https://raw.githubusercontent.com/docker-library/mongo/master/$MONGODB_VERSION/{Dockerfile,docker-entrypoint.sh}
+export DOCKER_USERNAME=username
+chmod 755 ./docker-entrypoint.sh
+```
+
+2. Create `docker-compose.yml` in your directory with following content:
+```yaml
+version: '2'
+
+services:
+  mymongo:
+    image: mymongo
+    container_name: mymongo
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports: ["27017:27017"]
+    volumes:
+      - '/etc/mongod.conf:/etc/mongod.conf'
+      - '/var/log/mongodb/mongod.log:/var/log/mongodb/mongod.log'
+    command:
+      - '--config'
+      - '/etc/mongod.conf'
+    networks:
+      mongo_net:
+        ipv4_address: 172.22.0.2
+
+networks:
+  mongo_net:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.22.0.2/24
+        gateway: 172.22.0.254
+```
+
+Where `172.22.0.2` is public IP for accessing database.
+
+3. Create `/etc/mongod.conf` with following content:
+```yaml
+storage:
+  dbPath: /data/db
+  journal:
+    enabled: true
+
+net:
+  port: 27017
+  bindIp: 127.0.0.1,172.22.0.2
+```
+Here you can see this IP again.
+
+4. Start mongo in background:
+```bash
+docker-compose up -d
+```
+
+5. Clone this repo. I'm not gonna to upload project to npm, etc.
 ```bash
 git clone https://github.com/petersamokhin/markdown-site
 ```
 
-2. Install dependencies 
+6. Start project in background:
 ```bash
-cd markdown-site
-npm i
+docker-compose up -d
 ```
 
-3. Rebuild project sources with `babel` (also static files will be copied to `/dist`)
-```bash
-npm run rebuild
-```
-
-## Run 
-Run on `http://localhost:3006/markdown-knowledge-base`
-```bash
-npm start
-```
+Profit!
 
 ## 3rd party
 - [babel](https://github.com/babel/babel)
