@@ -133,6 +133,9 @@ Find network with name like `mongo-docker_mongo_net`. It can be literally `mongo
 docker-compose up -d
 ```
 
+## Additional info
+You can use local MongoDB which is not in docker container, in this case, you must do it by yourself.
+
 Profit!
 
 ## 3rd party
