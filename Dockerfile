@@ -21,4 +21,4 @@ WORKDIR /app
 
 RUN npm install --unsafe-perm=true
 RUN gem install kramdown
-RUN npm run rebuildstart
+RUN npm run rebuild
