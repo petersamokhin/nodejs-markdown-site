@@ -8,6 +8,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    ports: ["3006:3006"]
 
 networks:
   mongo-docker_mongo_net:
