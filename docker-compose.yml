@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  mdsite:
+    image: mdsite
+    container_name: mdsite
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports: ["3006:3006"]
+
+networks:
+  default:
+    external:
+      name: mongo-docker_mongo_net
