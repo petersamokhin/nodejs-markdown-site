@@ -44,7 +44,8 @@ Any \*NIX OS is supported. No guarantees for Windows.
 1. Make some directory for installing mongodb from docker:
 ```bash
 cd ~
-mkdir /mongodocker
+mkdir mongodocker
+cd mongodocker
 ```
 
 2. Copy necessary files from mongo-docker repository:
