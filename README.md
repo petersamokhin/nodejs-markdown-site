@@ -35,11 +35,12 @@ And mobile version (iPhone 8 Plus):<br>
 <img src="https://i.imgur.com/LyiX1FL.jpg" width="300"></img>
 
 ## Requirements
-- docker
-- docker-compose
-And any OS.
+- [docker](https://www.docker.com/)
+- [docker-compose](https://docs.docker.com/compose/)
 
 ## Install
+Any \*NIX OS is supported. No guarantees for Windows.
+
 1. Make some directory for installing mongodb from docker:
 ```bash
 cd ~
@@ -69,7 +70,6 @@ services:
     ports: ["27017:27017"]
     volumes:
       - '/etc/mongod.conf:/etc/mongod.conf'
-      - '/var/log/mongodb/mongod.log:/var/log/mongodb/mongod.log'
     command:
       - '--config'
       - '/etc/mongod.conf'
@@ -86,7 +86,7 @@ networks:
         gateway: 172.22.0.254
 ```
 
-Where `172.22.0.2` is public IP for accessing database.
+Where `172.22.0.2` is public IP for accessing database. You can change it.
 
 3. Create `/etc/mongod.conf` with following content:
 ```yaml
@@ -97,9 +97,8 @@ storage:
 
 net:
   port: 27017
-  bindIp: 127.0.0.1,172.22.0.2
+  bindIp: 127.0.0.1,172.22.0.2 # here you can see this IP again
 ```
-Here you can see this IP again.
 
 4. Start mongo in background:
 ```bash
@@ -111,7 +110,24 @@ docker-compose up -d
 git clone https://github.com/petersamokhin/markdown-site
 ```
 
-6. Start project in background:
+6. See started networks and find `mongodb` network's name:
+```bash
+docker network ls
+```
+You must see something like this:
+```bash
+NETWORK ID          NAME                           DRIVER              SCOPE
+a117428b09c9        bridge                         bridge              local
+0b75179024f0        host                           host                local
+b1c67fcbca63        mongo-docker_mongo_net         bridge              local
+df7d198ae6c2        none                           null                local
+```
+
+Find network with name like `mongo-docker_mongo_net`. It can be literally `mongo-docker_mongo_net`.
+
+7. Change the name of a mongo network at the end of this project's `docker-compose.yml`. Now it's `mongo-docker_mongo_net`.
+
+8. Start project in the background:
 ```bash
 docker-compose up -d
 ```
