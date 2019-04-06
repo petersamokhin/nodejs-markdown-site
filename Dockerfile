@@ -20,7 +20,7 @@ COPY . /app
 WORKDIR /app
 
 RUN npm install --unsafe-perm=true
-RUN gem install kramdown
+RUN gem install kramdown -v 1.17.0
 RUN npm run rebuild
 
 CMD ["npm", "run", "start"]
