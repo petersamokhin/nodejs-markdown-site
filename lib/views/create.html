@@ -12,13 +12,31 @@
     <link rel="stylesheet" href="{{path_prefix}}/site/css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link rel="apple-touch-icon" sizes="57x57" href="{{path_prefix}}/site/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{path_prefix}}/site/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{path_prefix}}/site/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{path_prefix}}/site/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{path_prefix}}/site/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{path_prefix}}/site/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{path_prefix}}/site/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{path_prefix}}/site/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{path_prefix}}/site/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{path_prefix}}/site/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{path_prefix}}/site/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{path_prefix}}/site/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{path_prefix}}/site/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{path_prefix}}/site/img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <title>Add new article | Markdown Website</title>
 </head>
 <body>
 <nav>
     <div class="nav-wrapper hide-on-med-and-up">
         <a href="#" data-target="nav-mobile" class="sidenav-trigger left"><i class="material-icons">menu</i></a>
-        <a class="right brand-logo" id="logo-mobile">Markdown Knowledge Base</a>
+        <a class="right brand-logo" id="logo-mobile">Markdown Site</a>
         <ul id="nav-mobile" class="sidenav left">
             <li><a href="{{path_prefix}}">Home</a></li>
             <li class="active"><a>Add new article</a></li>
@@ -27,7 +45,7 @@
         </ul>
     </div>
     <div class="nav-wrapper hide-on-small-only">
-        <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
+        <a class="right brand-logo" id="logo-a">Markdown Site</a>
         <ul id="nav-pc" class="left">
             <li><a href="{{path_prefix}}">Home</a></li>
             <li><a class="active">Add new article</a></li>
@@ -39,7 +57,7 @@
 
 <div id="content">
     <div class="row center inputs">
-        <form action="" method="post" id="markdown-form">
+        <form action="{{path_prefix}}/create" method="post" id="markdown-form">
             <div class="input-field col s12 m11">
                 {{#edit_title}}
                 <input type="text" id="markdown-title" name="title" value="{{edit_title}}" required/>
@@ -47,6 +65,31 @@
                 {{^edit_title}}
                 <input type="text" id="markdown-title" name="title" required/>
                 {{/edit_title}}
+                <label for="markdown-title">Title</label>
+            </div>
+            <div class="input-field col s12 m11 left-align">
+                <div class="editor-btn-wrapper">
+                    <button onclick="editorAction('h1')" type="button" class="editor-btn">h1</button>
+                    <button onclick="editorAction('h2')" type="button" class="editor-btn">h2</button>
+                    <button onclick="editorAction('h3')" type="button" class="editor-btn">h3</button>
+                </div>
+                <div class="editor-btn-wrapper">
+                    <button onclick="editorAction('link')" type="button" class="editor-btn"><svg viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></button>
+                    <button onclick="editorAction('image')" type="button" class="editor-btn"><svg viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 5h2v2H6V5zm6-.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v11l3-5 2 4 2-2 3 3V5z"></path></svg></button>
+                </div>
+                <div class="editor-btn-wrapper">
+                    <button onclick="editorAction('bold')" type="button" class="editor-btn"><b>B</b></button>
+                    <button onclick="editorAction('italic')" type="button" class="editor-btn"><em><i>i</i></em></button>
+                </div>
+                <div class="editor-btn-wrapper">
+                    <button onclick="editorAction('list-markers')" type="button" class="editor-btn"><svg viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13c0 .59 0 1-.59 1H.59C0 14 0 13.59 0 13c0-.59 0-1 .59-1h.81c.59 0 .59.41.59 1H2zm2.59-9h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zM1.41 7H.59C0 7 0 7.41 0 8c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0-5H.59C0 2 0 2.41 0 3c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm10 5H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0 5H4.59C4 12 4 12.41 4 13c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01z"></path></svg></button>
+                    <button onclick="editorAction('list-numbers')" type="button" class="editor-btn"><svg viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 12.99c0 .589 0 .998-.59.998H4.596c-.59 0-.59-.41-.59-.999 0-.59 0-.999.59-.999H11.4c.59 0 .59.41.59 1H12zM4.596 3.996H11.4c.59 0 .59-.41.59-1 0-.589 0-.999-.59-.999H4.596c-.59 0-.59.41-.59 1 0 .589 0 .999.59.999zM11.4 6.994H4.596c-.59 0-.59.41-.59 1 0 .589 0 .999.59.999H11.4c.59 0 .59-.41.59-1 0-.59 0-.999-.59-.999zM2.008 1h-.72C.99 1.19.71 1.25.26 1.34V2h.75v2.138H.17v.859h2.837v-.86h-.999V1zm.25 8.123c-.17 0-.45.03-.66.06.53-.56 1.14-1.249 1.14-1.888-.02-.78-.56-1.299-1.36-1.299-.589 0-.968.2-1.378.64l.58.579c.19-.19.38-.38.639-.38.28 0 .48.16.48.52 0 .53-.77 1.199-1.699 2.058v.58h2.998l-.09-.88h-.66l.01.01zm-.08 3.777v-.03c.44-.19.64-.47.64-.859 0-.7-.56-1.11-1.44-1.11-.479 0-.888.19-1.278.52l.55.64c.25-.2.44-.31.689-.31.27 0 .42.13.42.36 0 .27-.2.44-.86.44v.749c.83 0 .98.17.98.47 0 .25-.23.38-.58.38-.28 0-.56-.14-.81-.38l-.479.659c.3.36.77.56 1.409.56.83 0 1.529-.41 1.529-1.16 0-.5-.31-.809-.77-.939v.01z"></path></svg></button>
+                </div>
+                <div class="editor-btn-wrapper">
+                    <button onclick="editorAction('code')" type="button" class="editor-btn"><svg viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"></path></svg></button>
+                    <button onclick="editorAction('quote')" type="button" class="editor-btn"><svg viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"></path></svg></button>
+                    <button onclick="editorAction('hr')" type="button" class="editor-btn"><svg viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1 7h2v2h1V3H3v3H1V3H0v6h1V7zm9 2V7H9v2h1zm0-3V4H9v2h1zM7 6V4h2V3H6v6h1V7h2V6H7zm-7 7h10v-2H0v2z"></path></svg></button>
+                </div>
             </div>
             <label class="col s12 m11" id="markdown-input-label">
                 {{#edit_text}}
@@ -61,10 +104,17 @@
                 <i class="material-icons">done</i>
             </button>
             <button type="button"
-                    class="btn-floating btn-large waves-effect waves-light indigo right col modal-trigger"
+                    class="btn-floating btn-large waves-effect waves-light right col indigo modal-trigger"
                     id="btn-preview" onclick="showPreview()">
                 <i class="material-icons">remove_red_eye</i>
             </button>
+            {{#edit_mode}}
+            <button type="button"
+                    class="btn-floating btn-large waves-effect waves-light right col modal-trigger"
+                    id="btn-delete" onclick="showDeleteConfirm()">
+                <i class="material-icons">delete</i>
+            </button>
+            {{/edit_mode}}
             <div class="input-field col s12 m11" id="path-select-wrapper">
                 <select id="path-select" name="path">
                     {{#available_folders}}
@@ -89,17 +139,31 @@
                 <input name="new_roles" type="tags" placeholder="Comma separated string with roles"/>
                 <label class="chips-placeholder-label">Or add new roles</label>
             </div>
+            {{#edit_full_path}}
+            <input type="hidden" value="{{edit_full_path}}" name="old_path">
+            {{/edit_full_path}}
         </form>
     </div>
 </div>
 
 <div id="preview-modal" class="modal modal-fixed-footer">
     <div class="modal-content center">
-        <article class="page-content g-10 page-article left-align" id="preview-modal-content" style="width: 80%">
+        <article class="page-content page-article left-align" id="preview-modal-content">
         </article>
     </div>
     <div class="modal-footer">
         <a class="modal-close waves-effect waves-green btn-flat">Close preview</a>
+    </div>
+</div>
+
+<div id="delete-modal" class="modal">
+    <div class="modal-content">
+        <h5 class="left" style="margin-bottom: 50px; width: 100%">Are you sure want to delete?</h5>
+        <h6>File <b>{{edit_full_path}}</b> will be deleted.</h6>
+        <h6>This action can't be undone.</h6>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-close waves-effect waves-green btn-flat" onclick="deletePage('{{edit_full_path}}')">Agree</a>
     </div>
 </div>
 
@@ -118,11 +182,95 @@
     $('.modal').modal()
 
     initTagsInput()
+  })
+
+  function editorAction (action) {
+    let value = editor.getSelection()
+    switch (action) {
+      case 'h1': {
+        value = value.length > 0 ? '# ' + value : '\n# '
+        break
+      }
+      case 'h2': {
+        value = value.length > 0 ? '## ' + value : '\n## '
+        break
+      }
+      case 'h3': {
+        value = value.length > 0 ? '### ' + value : '\n### '
+        break
+      }
+      case 'link': {
+        value = `[${value}](PASTE LINK HERE)`
+        break
+      }
+      case 'image': {
+        value = `![${value}](PASTE LINK TO IMAGE HERE)`
+        break
+      }
+      case 'bold': {
+        value = `**${value}**`
+        break
+      }
+      case 'italic': {
+        value = '_' + value + '_'
+        break
+      }
+      case 'list-markers': {
+        value = `- ${value}`
+        break
+      }
+      case 'list-numbers': {
+        value = `1. ${value}`
+        break
+      }
+      case 'code': {
+        value = '```\n' + value + '```'
+        break
+      }
+      case 'quote': {
+        value = '> ' + value
+        break
+      }
+      case 'hr': {
+        value = value + '\n\n---'
+        break
+      }
+    }
+
+    editor.replaceSelection(value)
+  }
+
+  function showDeleteConfirm () {
+    $('#delete-modal').modal('open')
+  }
+
+  function showPreview () {
+    $.post('preview', {
+      markdown: editor.getValue()
+    }).done((data) => {
+      $('#preview-modal').modal('open')
+      $('#preview-modal-content').html(data.html)
+    })
+  }
+
+  function deletePage (page) {
+    $.ajax({
+      type: 'DELETE',
+      url: '{{path_prefix}}/create'.replace(/&#x2F;/g, '/'),
+      data: {
+        path: page
+      }
+    })
+    window.location.href = '{{path_prefix}}'.replace(/&#x2F;/g, '/')
+  }
+</script>
+<script>
+  $(document).ready(() => {
 
     {{#edit_mode}}
 
     // path
-    let editPage = 'option[value="' + "{{edit_path}}".replace(/&#x2F;/g, '/') + '"]';
+    let editPage = 'option[value="' + '{{edit_path}}'.replace(/&#x2F;/g, '/') + '"]'
     $(editPage).attr('selected', '')
     $('#path-select').formSelect()
 
@@ -134,15 +282,6 @@
     {{/edit_mode}}
 
     })
-
-  function showPreview () {
-    $.post('{{path_prefix}}/preview', {
-      markdown: editor.getValue()
-    }).done((data) => {
-      $('#preview-modal').modal('open')
-      $('#preview-modal-content').html(data.html)
-    })
-  }
 </script>
 <script>$('.sidenav').sidenav()</script>
 </body>

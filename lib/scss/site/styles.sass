@@ -38,6 +38,9 @@ textarea
   font-family: Menlo, 'Roboto', sans-serif
   border: 1px $md-input-border-color solid
 
+pre
+  word-wrap: inherit !important
+
 article > pre > code
   white-space: pre
   overflow-x: auto
@@ -124,6 +127,14 @@ h1:hover .ctrlc
 #btn-preview
   z-index: 1000
 
+#btn-delete
+  background-color: #e64646
+  z-index: 1000
+
+#delete-modal
+  width: 500px !important
+  height: auto !important
+
 .autocomplete-items
   position: absolute
   border: 1px solid #d4d4d4
@@ -163,7 +174,7 @@ h1:hover .ctrlc
   color: white
 
 #nav-pc > li > a
-  color: rgba(255,255,255,0.7)
+  color: rgba(255, 255, 255, 0.7)
 
 .switch
   margin: 15px 0 15px 0
@@ -205,6 +216,47 @@ h1:hover .ctrlc
 #btn-edit-page:hover
   opacity: 1
 
+.editor-btn-wrapper
+  padding: 0 !important
+  margin: 5px 5px 0 0 !important
+  display: inline-flex
+
+.editor-btn
+  display: inline-block
+  background: #eff3f6 linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%)
+  border: 1px solid rgba(27, 31, 35, 0.2)
+  border-left: none
+  margin: 0
+  width: 48px
+  padding: 7px 15px !important
+  cursor: pointer
+  font-weight: 400
+
+.editor-btn:hover
+  background: #fafbfc linear-gradient(-180deg, #fafbfc 0%, #e9e9e9 90%) repeat-x -1.5em
+
+.editor-btn > svg
+  vertical-align: middle
+
+.editor-btn:first-of-type
+  border-top-left-radius: 3px
+  border-bottom-left-radius: 3px
+  border-left: 1px solid rgba(27, 31, 35, 0.2)
+
+.editor-btn:last-of-type
+  border-top-right-radius: 3px
+  border-bottom-right-radius: 3px
+  border-right: 1px solid rgba(27, 31, 35, 0.2)
+
+
+.confirm-delete-btn
+  background-color: #e64646 !important
+
+#preview-modal > div > article
+  width: 100%
+
+/////////
+
 @media only screen and (max-width: 800px)
   #logo-a
     display: none
@@ -220,6 +272,9 @@ h1:hover .ctrlc
 //  padding: 0 10px 0 10px
 
 @media only screen and (max-width: 1000px)
+  #preview-modal
+    width: 95%
+
   .page-content
     width: 95%
     margin: 0 0 0 2.5%
@@ -238,13 +293,18 @@ h1:hover .ctrlc
 
   #submit-btn-create
     position: fixed
-    right: 20px
-    bottom: 40px !important
+    right: 10px
+    bottom: 135px !important
 
   #btn-preview
     position: fixed
-    right: 20px
-    bottom: 100px !important
+    right: 10px
+    bottom: 75px !important
+
+  #btn-delete
+    position: fixed
+    right: 10px
+    bottom: 15px !important
 
   #path-select-label
     margin-top: -15px
@@ -276,6 +336,13 @@ h1:hover .ctrlc
     bottom: 10px
     right: 10px
 
+  .editor-btn
+    width: 45px
+
+  #delete-modal
+    width: 90% !important
+    height: auto !important
+
 @media only screen and (min-width: 1000px)
   #submit-btn-create
     position: fixed
@@ -284,5 +351,15 @@ h1:hover .ctrlc
   #btn-preview
     position: fixed
     top: 270px
+
+  #btn-delete
+    position: fixed
+    top: 340px
+
+  .confirm-delete-btn
+    margin-left: 45px !important
+
+  #preview-modal
+    width: 900px
 
 @import "create"

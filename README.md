@@ -4,6 +4,8 @@
 
 Make your project documentation (or blog, or something else) with Markdown.
 
+#### Demo: [https://petersamokhin.com/markdown-site/demo](https://petersamokhin.com/markdown-site/demo?github-readme)
+
 ## Features
 - HTML-generating on-the-fly from the Markdown files.
 - Generating of navigation on-the-fly.

@@ -9,6 +9,24 @@
     <link rel="stylesheet" href="{{path_prefix}}/site/css/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link rel="apple-touch-icon" sizes="57x57" href="{{path_prefix}}/site/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{path_prefix}}/site/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{path_prefix}}/site/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{path_prefix}}/site/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{path_prefix}}/site/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{path_prefix}}/site/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{path_prefix}}/site/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{path_prefix}}/site/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{path_prefix}}/site/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{path_prefix}}/site/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{path_prefix}}/site/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{path_prefix}}/site/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{path_prefix}}/site/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{path_prefix}}/site/img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <title>Admin panel | Markdown Website</title>
 </head>
 <body>
@@ -24,7 +42,7 @@
         </ul>
     </div>
     <div class="nav-wrapper hide-on-small-only">
-        <a class="right brand-logo" id="logo-a">Markdown Knowledge Base</a>
+        <a class="right brand-logo" id="logo-a">Markdown Site</a>
         <ul id="nav-pc" class="left">
             <li><a href="{{path_prefix}}">Home</a></li>
             <li><a href="{{path_prefix}}/create">Add new article</a></li>
@@ -53,7 +71,6 @@
                         <th>Paths</th>
                     </tr>
                     </thead>
-
                     <tbody id="access-table-body">
                     </tbody>
                 </table>
@@ -90,6 +107,10 @@
                         id="change_roles_path">
                     Confirm
                 </button>
+                <button type="button" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn confirm-delete-btn" name="change_roles_path"
+                        id="delete_path">
+                    Delete path
+                </button>
             </div>
             <!-- User -->
             <div class="section" id="user-select-section">
@@ -121,7 +142,11 @@
                 </div>
                 <button type="submit" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn" name="change_roles_user"
                         id="change_roles_user">
-                    Confirm
+                    Confirm changes
+                </button>
+                <button type="button" class="btn waves-effect waves-light indigo col s5 change-roles-submit-btn confirm-delete-btn" name="change_roles_user"
+                        id="delete_user">
+                    Delete user
                 </button>
             </div>
         </form>

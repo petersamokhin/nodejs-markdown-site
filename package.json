@@ -38,9 +38,9 @@
     "eslint-plugin-standard": "^4.0.0"
   },
   "scripts": {
-    "sass:kotlin-website-markdown": "node-sass --include-path sass --output-style compressed lib/scss/markdown/styles.scss lib/public/markdown-knowledge-base/markdown/css/styles.css",
-    "sass:materialize": "node-sass --include-path sass --output-style compressed lib/scss/materialize/materialize.scss lib/public/markdown-knowledge-base/materialize/css/materialize.css",
-    "sass:site": "node-sass --include-path sass --output-style compressed lib/scss/site/styles.sass lib/public/markdown-knowledge-base/site/css/styles.css",
+    "sass:kotlin-website-markdown": "node-sass --include-path sass --output-style compressed lib/scss/markdown/styles.scss lib/public/markdown-site/markdown/css/styles.css",
+    "sass:materialize": "node-sass --include-path sass --output-style compressed lib/scss/materialize/materialize.scss lib/public/markdown-site/materialize/css/materialize.css",
+    "sass:site": "node-sass --include-path sass --output-style compressed lib/scss/site/styles.sass lib/public/markdown-site/site/css/styles.css",
     "build": "cp -rf dist/views/pages/* lib/views/pages 2>/dev/null || : && rm -rf dist && babel lib --ignore lib/public --out-dir dist --source-maps",
     "copystatic": "cp -rf lib/views dist/views && cp -rf lib/public dist/public",
     "start": "node dist/app.js",
